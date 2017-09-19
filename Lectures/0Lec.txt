@@ -1,0 +1,38 @@
+- Lecture:--
+1700-1820
+Tuesday/Thursday
+TIL-232
+
+- Instructor: --
+John-Austen Francisco
+Email: deymious@gmail.com
+Office hours: Tuesday/Thursday 1500-1600, Hill 361
+
+emailmeatdeymiousatyahoo.com@rutgers.edu
+
+
+emacs
+vi
+
+
+
+10011
+
+
+
+
+int
+float
+char -> 'a'  '\n'  '\0'
+
+"string" -> hello\0
+
+
+
+
+
+
+
+
+
+

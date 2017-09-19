@@ -1,0 +1,137 @@
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main (int argc, char * argv[] )
+{
+
+	return 0;
+}
+
+
+"string": null-terminated array of chars
+boolean: 0 ~ "false"
+				1 ~ "true"
+
+int someTruth = 5;
+				
+while( someTruth )
+{
+
+}
+
+
+struct - group of vars given one name
+
+struct <name> {
+|<type0> <var0>|;
+....
+|<typeN> <varN>|;
+};
+
+
+struct point {
+	int x;
+	int y;
+};
+
+
+<type> <name> = <value>;
+
+
+struct point Alocation = {2, 3};
+
+Alocation.x 
+
+
+
+
+struct point OtherLocation = NULL;
+
+OtherLocation.y = 12;
+
+
+
+
+
+struct rectangle {
+	struct point upperLeftCorner;
+	struct point lowerRightCorner;
+};
+
+
+struct rectangle someRectangle = {  {2,3}, {1, 5} };
+
+
+
+
+x						y
+--------------------|-----------------------|
+
+
+
+
+
+union somestuff {
+	float thing0;
+	int stuff0;
+	char metoo;
+};
+
+
+|---------------------------------|
+
+
+234.123.5.2
+
+
+
+struct: at least the sum of the sizes of its components
+union:: at least the size of the largest component
+
+
+typedef point
+struct _point {
+	int x;
+	int y;
+};
+
+
+typedef <new type name> <new type definition/type>;
+
+typedef volume int;
+
+
+
+volume cylinder = 12;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

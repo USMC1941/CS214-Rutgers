@@ -1,0 +1,88 @@
+
+typedef <definition of type> <type name>
+
+enum colors {RED, GREEN, BLUE}
+
+
+int main(int argc, char *argv[])
+
+0 10010101
+1  00100101
+2
+3
+4
+5
+
+|
+V
+
+function( struct memoryHog reallyBig)
+{
+
+
+
+}
+
+|
+V
+
+
+
+function( struct memoryHog * reallyBig)
+{
+
+
+
+}
+
+
+
+type:
+	length
+	method of parsing bits
+	
+int ~ 4bytes
+char ==1byte
+
+int a = 12;
+char b = 'c';
+
+
+0 1011001
+1  1010010
+2  100101
+3  101001
+4  10101
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

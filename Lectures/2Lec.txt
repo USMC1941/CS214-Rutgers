@@ -1,0 +1,69 @@
+
+
+"memory oriented"
+
+
+types:
+  structs
+	- one new named type that consists of multiple other types
+	- size? -> at least <- the sum of the size of its components
+	
+	
+whence size? sizeof() !
+
+
+
+char - 1 byte
+sizeof(short) <= sizeof(int) <= sizeof(long)
+
+
+	unions
+	- one block of memory for all members
+	- size is at least size of largest type
+	- changing any one member will change all
+	
+101001010
+  |	
+	       |
+                  |	
+	
+
+
+"3+3"
+
+
+
+
+
+3+3*3+3
+
+
+CUP
+PINT
+QUART
+GALLON
+
+
+
+enum volumes = {CUP=1,  PINT=2, QUART=4, GALLON=16};
+
+
+enum volumes jug = CUP;
+
+
+enum boolean = {TRUE=1, FALSE=0};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
