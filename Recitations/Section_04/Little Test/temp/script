@@ -1,0 +1,9 @@
+#!/bin/bash
+
+clear
+
+echo "Compiling..."
+
+gcc ./libb.h ./libb.c ./liba.h ./liba.c ./main.c -o test -g -Wall
+
+echo "Done. You can run ./test "
