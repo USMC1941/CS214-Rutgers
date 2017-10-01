@@ -102,3 +102,127 @@ Include a discussion of the algorithm and your findings.
 Extra Credit (10 points):
 Find a way to generalize your sorter given *any* CSV file.
 Include a discussion of the algorithm and any additional metadata you might require.
+
+
+Project Part 0 FAQ
+
+Q> When sorting by the item which is type of string, the sort rule is A-Z or lexicographic order？
+
+A> The default should be lexicographical order (i.e. how strcmp evaluates strings)
+
+ 
+
+Q> For the column of color, there is a blank before "Black and White", should it be considered during sorting?
+
+A> For all fields, one should trim leading and trailing whitespace
+
+ 
+
+Q> What about the items with null value? should them be considered during sorting?
+
+A> It is sufficient to move all null items to the beginning of the sorted list, in the order they appear in the original list
+
+ 
+
+Q> Will the grader use a different CSV?
+
+A> The grader will use a different CSV, but it will adhere to the format given in the assignment
+
+ 
+
+Q> Should the sorting be ascending or descending?
+
+A> Ascending (you can always parse a command line parameter to do the opposite)
+
+ 
+
+Q> What are the types of the fields?
+
+A> See listing below.
+
+ 
+
+color
+string
+ 
+director_name
+string
+
+ 
+num_critic_for_reviews
+numeric
+ 
+duration
+dateTime (numeric)
+ 
+director_facebook_likes
+numeric
+ 
+actor_3_facebook_likes
+numeric
+ 
+actor_2_name
+string
+ 
+actor_1_facebook_likes
+numeric
+ 
+gross
+numeric
+ 
+genres
+string
+ 
+actor_1_name
+string
+ 
+movie_title
+string
+ 
+num_voted_users
+numeric
+ 
+cast_total_facebook_likes
+numeric
+ 
+actor_3_name
+string
+ 
+facenumber_in_poster
+numeric
+ 
+plot_keywords
+string
+ 
+movie_imdb_link
+string
+ 
+num_user_for_reviews
+numeric
+ 
+language
+string
+ 
+country
+string
+ 
+content_rating
+string
+ 
+budget
+numeric
+ 
+title_year
+numeric
+ 
+actor_2_facebook_likes
+numeric
+ 
+imdb_score
+numeric
+ 
+aspect_ratio
+numeric
+ 
+movie_facebook_likes
+numeric
