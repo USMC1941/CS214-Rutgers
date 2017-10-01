@@ -1,8 +1,8 @@
 #include <stdio.h>
 #define MAXNUM 10
 
-//test preprocessing
-//class 214
+// test preprocessing
+// class 214
 int main(int argc, char const *argv[]) {
   int i,j;
   for(i=0;i<MAXNUM;i++){

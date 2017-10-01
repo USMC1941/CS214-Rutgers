@@ -1,4 +1,4 @@
-//sample code for basic type
+// sample code for basic type
 #include <stdio.h>
 #include <string.h>
 

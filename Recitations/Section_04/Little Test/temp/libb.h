@@ -4,6 +4,8 @@
 #include<stdio.h>
 
 extern int global_var;
+
+
 void func_libb();
 
 #endif

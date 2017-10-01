@@ -1,11 +1,14 @@
-/* if we don't use macro in liba.h and lib.h
- * we will have redefine issue here */
-#include "liba.h"
-#include "libb.h"
+/*
+ * if we don't use macro in liba.h and lib.h
+ * we will have redefine issue here 
+ */
 #include <stdio.h>
 
-int main(int argc, char**argv)
-{
+#include "liba.h"
+#include "libb.h"
+
+
+int main(int argc, char**argv) {
 	/* These functions are not defined in main.c but you can use them */
 	func_liba();
 	func_libb();

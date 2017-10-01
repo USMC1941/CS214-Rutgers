@@ -1,4 +1,4 @@
-//refer to https://stackoverflow.com/questions/13372688/sorting-members-of-structure-array
+// refer to https://stackoverflow.com/questions/13372688/sorting-members-of-structure-array
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -28,7 +28,7 @@ int compare(const void *s1, const void *s2){
 int main(int argc, char const *argv[]) {
   int i;
   struct employee info[]={{"male","Matt",1234},{"female","Jessica",2345},{"male","Josh",1235}};
-
+  
   for (i = 0; i < 3; ++i) {
     printf("%d\t%s\t%s\n", info[i].id, info[i].gender, info[i].name);
   }
