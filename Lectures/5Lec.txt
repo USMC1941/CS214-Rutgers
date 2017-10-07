@@ -27,7 +27,3 @@ abcdeF0000000000
 cat input.file | ./sorter -c  movie_title      > sortedmovies.csv
 
 ls -alF
-
-
-
-

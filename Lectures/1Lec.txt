@@ -40,9 +40,9 @@ struct point {
 <type> <name> = <value>;
 
 
-struct point Alocation = {2, 3};
+struct point Allocation = {2, 3};
 
-Alocation.x 
+Allocation.x 
 
 
 
@@ -65,9 +65,31 @@ struct rectangle someRectangle = {  {2,3}, {1, 5} };
 
 
 
-
+Could:
 x						y
 --------------------|-----------------------|
+Could:
+x    y
+--------
+Could:
+x        y
+----     ----
+
+Never:
+y    x
+--------
+
+
+
+typedef struct rectangle rectangle
+---------- ----------------- ----------
+
+typedef																	    Part 1
+struct rectangle {														Part 2
+	struct point upperLeftCorner;
+	struct point lowerRightCorner;
+}
+rectangle;																	Part 3
 
 
 
@@ -80,28 +102,54 @@ union somestuff {
 };
 
 
-|---------------------------------|
+|----|		thing0
+|----|		stuff0
+|-|			metoo
+
+|----|		allocated memory
 
 
+IP Address:
 234.123.5.2
+Bits:
+******** ******** ******** ********
+11111111 11111111 11111111 00000000								Network Mask (255.255.255.0)
+11101010 01111011 00000101 00000010 								IP Address	 (2 parts: Network and Host)
+11101010 01111011 00000101 00000000								Network Part
+00000000 00000000 00000000 00000010								Host Part
 
 
 
 struct: at least the sum of the sizes of its components
-union:: at least the size of the largest component
+union: at least the size of the largest component
 
 
-typedef point
-struct _point {
+typedef 
+struct _point {			struc _point
 	int x;
 	int y;
-};
+} point;						point
 
 
 typedef <new type name> <new type definition/type>;
 
 typedef volume int;
 
+
+typedef char char_t, *char_p, (*fp)(void); 						// declares char_t to be an alias for char
+																					// char_p to be an alias for char*
+																					// fp to be an alias for char(*)(void)
+
+char_t	is:		char																			(char char_t;)
+char_p	is:		char *																		(char *char_p;)				   
+fp	is a function pointer for a function take no parameter return char		(char (*fp)(void);)
+fp point to is a function take no parameter return a char
+(*fp) signature of function pointer.
+fp -- type name
+fp a, b, c;
+
+
+char *char_p -> char_p point to is a char. char_p is char pointer.
 
 
 volume cylinder = 12;
@@ -112,26 +160,16 @@ volume cylinder = 12;
 
 
 
+int  (*(*callbacks[5])(void))  [3];
+callbacks -- variable name
+--
+(*(*callbacks[5])(void)) is an int array of 3 elements;
+
+(*callbacks[5])(void) is a pointer to an int array of 3 elements
 
 
+callbacks is an array of 5 function pointer
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+point to function:
+	take no parameter
+	return a pointer to an int array of 3 elements.

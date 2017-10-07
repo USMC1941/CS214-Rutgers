@@ -52,18 +52,3 @@ enum volumes jug = CUP;
 
 
 enum boolean = {TRUE=1, FALSE=0};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

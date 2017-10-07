@@ -4,12 +4,13 @@ Since no book was required for this class, these suggested readings help to rein
 This is NOT an exhaustive list. 
 There may be things discussed in lecture that are not included in this reading list. 
 You are responsible for all material in lecture, in recitation, and in your project implementation.
- 
+
 C Basics (i.e. 211 Review!)
-You should have a general understanding of how to program in C (e.g. control structures, keywords, primitive types, reading fromto stdinstdout, etc)
- 
+You should have a general understanding of how to program in C (e.g. control structures, keywords, primitive types, reading from/to stdin/stdout, etc)
+
 Our emphasis is on the aspects of C that are dissimilar to Java. Below are some readings that highlight these differences.
- 
+
+
 The C Book
 
 Chapter 5. Arrays and Pointers
@@ -22,22 +23,25 @@ Chapter 5. Arrays and Pointers
 5.7. Expressions involving pointers
 5.8. Arrays, the & operator and function declarations
 5.9. Summary
+
 Chapter 6. Structured Data Types
 6.1. History
 6.2. Structures
 6.3. Unions
 6.5. Enums
 6.7. Initialization
-6.8. Summary 
+6.8. Summary
+
 Chapter 7. The Preprocessor
 7.1. Effect of the Standard
 7.2. How the preprocessor works
 7.3. Directives
- 
+
 
 Computer Systems: A Programmer's Perspective (2nd Edition)
 
 Memory Allocation
+
 Chapter 9.9
 9.9.1 The malloc and free Functions 840
 9.9.2 Why Dynamic Memory Allocation 843
@@ -53,6 +57,7 @@ Chapter 9.9
 9.9.12 Putting It Together Implementing a Simple Allocator 854
 9.9.13 Explicit Free Lists 862
 9.9.14 Segregated Free Lists 863
- 
+
+
 Project 0
 Make sure to understand what both you and your partner did for the project. Understand the main parts of the algorithms employed.

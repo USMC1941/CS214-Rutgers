@@ -1,6 +1,3 @@
-
-
-
 int a = 2;
 int * p = &a;
 
@@ -62,18 +59,3 @@ Signals:
 char array[] = "anA";	
 	
 write(STDOUT, array, 4)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
