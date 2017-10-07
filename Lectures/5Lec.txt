@@ -1,0 +1,33 @@
+
+cat input.file | ./sorter -c  movie_title
+
+pipe output of one cmd to stdin of another:
+   | more 
+
+redirect output:
+    > filename
+
+redirect output with append:
+  >> filename
+
+
+
+
+printf( "%d", name );  
+
+
+scanf("%d", name);
+
+
+
+abcdeF0000000000
+
+
+
+cat input.file | ./sorter -c  movie_title      > sortedmovies.csv
+
+ls -alF
+
+
+
+

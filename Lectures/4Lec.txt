@@ -1,0 +1,119 @@
+
+
+~=
+"
+((Asst0/maxPtsAsst0 + ...+  AsstNmaxPtsAsstN) * weightAsst) + ....
+"
+
+-----
+
+pointers:
+
+
+int a = 12;
+int * ptr = &a;
+
+
+typedef
+struct _STUFF
+{
+	char * data[ ];
+	struct _STUFF *  next;
+}
+aNode;
+
+
+aNode * headNode = .....
+
+(*headNode).next "==" headNode->next
+
+
+
+int error = 0;
+
+char * newString = (char*)malloc(10*sizeof(char));
+
+if( newString == NULL)
+{
+	printf("Fatal Error: Could not allocate memory for stuff! Oh Noes!\n");
+	error = -1;
+}
+
+.
+.
+.
+if( error < 0 )
+{
+	return -1;
+}
+
+
+
+int * somePtr = (int*)malloc(sizeof(int));
+free(somePtr);
+
+
+
+
+
+int* fn()
+{
+	int a = 12;
+	int * somePtr = &a;
+
+	return somePtr;
+}
+
+
+int* fn()
+{
+	int * somePtr = (int*)malloc(sizeof(int));
+	*somePtr = 12;
+
+	*somePtr = NULL;
+	
+	return somePtr;
+}
+
+..
+free(returnedPtr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

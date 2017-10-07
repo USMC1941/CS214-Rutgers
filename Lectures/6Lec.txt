@@ -1,0 +1,74 @@
+
+char allOfMemory[2^10];
+
+void *malloc(uint size)
+{
+		
+
+			ALLOC * allocation = (ALLOC*)allOfMemory;
+
+			ALLOC->capacity = size;
+			ALLOC->free = 0;
+			
+			return (void*) (allocation+sizeof(ALLOC)) ;
+}
+
+
+
+
+1001110011010
+
+typedef
+struct _ALLOC
+{
+	uint capacity
+	ushort free
+}
+ALLOC;
+
+
+
+&
+|
+<<
+>>
+
+
+"
+struct metadata
+{
+	filename
+	filesize
+	mode (bit)
+	permissions
+	date created
+		first block
+		second block
+		...
+		Nth block
+		first indirection block
+		second indirection block
+		first double indirect block
+}
+"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+
+
+memory: (implementation)
+malloc
+realloc
+calloc
+
+file systems: (implementation)
+i-nodes:
+10 pointers
+
+char*
+char**
+char***
+
+10 pointers:
+7 direct-mapped
+2 single-indirection
+1 double-indirection
+
+
+10101
+
+
+dynamic number: segmentation
+fixed-sized things: paging
+
+segmented paging
+
+
+---
+
+
+Process: OS' abstraction for running code
+
+pid: 2
+int i = 2;
+fork()
+char a = 'a';
+exec("./somebinary");
+
+pid:3
+int i = 2;
+fork()
+char a = 'a';
+exec("./somebinary");
+
+
+int pid = fork();
+if(pid == 0)
+{
+	exec("./somebinary");
+}
+
+
+
+
+
+
+
+

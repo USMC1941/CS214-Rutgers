@@ -1,0 +1,79 @@
+
+
+
+int a = 2;
+int * p = &a;
+
+p = p+1;
+
+printf("%X\n", p);
+
+&a ... 0x100201AF
+
+0x100201B0
+
+
+short <= int <= long
+
+char = 1
+
+---
+"union"
+long c = 2;
+int * p = (int*)&c;
+char * q = (char*)&c;
+
+---
+
+int pid = fork();
+if( pid == 0)
+{
+	exec("./newcode");
+}
+
+
+wait( ) ... wait for child process to be done running
+
+
+
+Zombie process - process that is done running, no executable code, whose parent has not yet waited on it
+
+Orphan process - a process whose parent no longer is in the system
+
+Zombie orphan - process that is done running, no executable code, who has no parent to wait on it
+
+pid
+ppid
+
+Init - pid 0
+(unforked)
+
+
+
+Exceptional computation:
+	Exceptions: instructions that can not be run
+	Interrupts: stop computation for something important (events)
+	Trap: voluntarily give up control of computation - and have the OS run some of its code on your behalf
+				(i.e. "system call")
+				
+Signals:
+	software interrupts that may be caused by hardware or software events
+
+char array[] = "anA";	
+	
+write(STDOUT, array, 4)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
