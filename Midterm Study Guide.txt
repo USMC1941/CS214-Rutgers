@@ -1,5 +1,9 @@
 CS214 Exam 1 Study Guide
-Since no book was required for this class, these suggested readings help to reinforce the material we covered in lecture. This is NOT an exhaustive list. There may be things discussed in lecture that are not included in this reading list. You are responsible for all material in lecture, in recitation, and in your project implementation.
+
+Since no book was required for this class, these suggested readings help to reinforce the material we covered in lecture. 
+This is NOT an exhaustive list. 
+There may be things discussed in lecture that are not included in this reading list. 
+You are responsible for all material in lecture, in recitation, and in your project implementation.
  
 C Basics (i.e. 211 Review!)
 You should have a general understanding of how to program in C (e.g. control structures, keywords, primitive types, reading fromto stdinstdout, etc)
