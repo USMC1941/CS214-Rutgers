@@ -50,6 +50,11 @@ if( error < 0 )
 
 
 int * somePtr = (int*)malloc(sizeof(int));
+
+void *memset( void *dest, int ch, size_t count );
+
+memset(somePtr, '\0', 4);
+...
 free(somePtr);
 
 

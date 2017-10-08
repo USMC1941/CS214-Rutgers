@@ -26,9 +26,9 @@ sizeof(short) <= sizeof(int) <= sizeof(long)
   |	
 	       |
                   |	
-	
+				  
 
-
+				  
 "3+3"
 
 
@@ -45,7 +45,21 @@ GALLON
 
 
 
+
+*****************************************************************************************
+enum
+	* is a number
+	* is int
+	* has limited count of valid numbers
+		* each one has a named
+		
+
+
 enum volumes = {CUP=1,  PINT=2, QUART=4, GALLON=16};
+
+enum volumes = {CUP,  PINT, QUART, GALLON};
+
+enum volumes = {CUP=1000,  PINT=2, QUART=908765, GALLON=0};
 
 
 enum volumes jug = CUP;

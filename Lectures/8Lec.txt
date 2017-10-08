@@ -23,8 +23,8 @@ char * q = (char*)&c;
 ---
 
 int pid = fork();
-if( pid == 0)
-{
+
+if( pid == 0) {
 	exec("./newcode");
 }
 
@@ -46,12 +46,19 @@ Init - pid 0
 (unforked)
 
 
-
-Exceptional computation:
+********************************************************************************************
+Exceptional Computation:
 	Exceptions: instructions that can not be run
+	
 	Interrupts: stop computation for something important (events)
+		Hardware:	
+		Software:
+	
 	Trap: voluntarily give up control of computation - and have the OS run some of its code on your behalf
-				(i.e. "system call")
+		* (i.e. "system call")
+		* kernel, shell
+		* A type of call. D data. Make system call.
+		
 				
 Signals:
 	software interrupts that may be caused by hardware or software events
@@ -59,3 +66,48 @@ Signals:
 char array[] = "anA";	
 	
 write(STDOUT, array, 4)
+
+
+
+
+
+void (*signal ( int sig, void (*handler) (int)) ) (int);
+
+
+
+
+
+
+
+*******************************************************************
+System Call List:
+System calls can be roughly grouped into five major categories:
+
+Process Control
+	load
+	execute
+	end, abort
+	create process (for example, fork on Unix-like systems, or NtCreateProcess in the Windows NT Native API)
+	terminate process
+	get/set process attributes
+	wait for time, wait event, signal event
+	allocate, free memory
+File management
+	create file, delete file
+	open, close
+	read, write, reposition
+	get/set file attributes
+Device Management
+	request device, release device
+	read, write, reposition
+	get/set device attributes
+	logically attach or detach devices
+Information Maintenance
+	get/set time or date
+	get/set system data
+	get/set process, file, or device attributes
+Communication
+	create, delete communication connection
+	send, receive messages
+	transfer status information
+	attach or detach remote devices

@@ -20,13 +20,33 @@ vi
 
 
 
+*****************************************************************************
 
-int
+int		4 bytes
 
-float
+float		4 bytes
 
 char -> 'a' (97, 0x61)  '\n'(10, 0x0A)  '\0'(0, 0x00)
-	char is a number. 128 to -127.
+	* char is a number. 128 to -127.
+	* Associated with character via ASCII
+	* Literal inside single quote: 'a'
+	* Some with escape '\n', '\t'
+	* '1' not equals to 1: '1' -> 49
 
 "string" -> hello\0
-	NULL terminated char array.
+	* NULL terminated char array.
+	* char[], or char*
+	* char* pCh = NULL	--- No string, NULL string
+	* char* pCh = "\0"	--- empty string
+	* Memory to hold a string of length len is: len + 1 (1 for the terminated '\0')
+	* String functions:
+			int		strlen(const char *str);																	// return 0 of char* is NULL pointer
+			char*	strcat(char *dest, const char *src);
+			char*	strtok(char *str, const char *delim);												// first time input char*, after that NULL. Return token, is NULL no more token
+			char*	strcpy(char *dest, const char *src);
+			char*	strncpy(char *dest, const char *src, size_t count);							// at most count number
+				-> Copies at most count characters of the character array pointed to by src (including the terminating null character, but not any of the characters that follow the null character) to character array pointed to by dest.
+				-> count could be considered the memory size of target: max length is count - 1
+			int strcmp(const char *lhs, const char *rhs);
+				-> return = lhs - rhs;
+	

@@ -1,5 +1,12 @@
+*********************************************************************************************
+type name is:
+	enum colors
+	enum directions;
+
 
 typedef <definition of type> <type name>
+
+typedef enum colors colors;
 
 enum colors {RED, GREEN, BLUE}
 

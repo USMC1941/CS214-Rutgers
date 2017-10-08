@@ -2,6 +2,8 @@ memory: (implementation)
 malloc
 realloc
 calloc
+memset
+
 
 file systems: (implementation)
 i-nodes:
@@ -29,9 +31,12 @@ segmented paging
 ---
 
 
+
+****************************************************************************************************
 Process: OS' abstraction for running code
 
 pid: 2
+
 int i = 2;
 fork()
 char a = 'a';
@@ -43,9 +48,17 @@ fork()
 char a = 'a';
 exec("./somebinary");
 
+*************************************************************
+up to this point: same. parent will clone everything in next
 
-int pid = fork();
-if(pid == 0)
-{
-	exec("./somebinary");
+int pid = fork();							//only parent run it so pid(child's pid) is not zero. For child it is zero
+//
+if (pid == 0) {
+	exec("./somebinary");			//child
 }
+else {
+	//continue								//parent
+}
+
+
+

@@ -1,27 +1,45 @@
-
+*****************************************************************************************
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 int main (int argc, char * argv[] )
 {
-
+	...
 	return 0;
 }
 
+char * argv[]  -> char**
 
-"string": null-terminated array of chars
-boolean: 0 ~ "false"
-				1 ~ "true"
+
+
+
+
+*****************************************************************************************
+"string": 
+	null-terminated array of chars
+	buffer length is string length + 1, the 1 for terminated '\0'
+
+boolean: 
+	0 ~ "false"
+	1 ~ "true"
+	in C boolean could be: 	char(1 bytes), short(2 bytes), int(4 bytes), long(8 bytes): 0 is false, non-zero is true
+										pointer: NULL is false, no NULL is true
+										'\0' -> false	char is a number 0 is false
+										"\0" -> true	"\0" is a pointer, which is no NULL so it is true
 
 int someTruth = 5;
 				
-while( someTruth )
-{
-
+while( someTruth ) {
+	...
+	someTruth--;		//to exit when 0
 }
 
 
+
+
+
+*****************************************************************************************
 struct - group of vars given one name
 
 struct <name> {
@@ -30,43 +48,41 @@ struct <name> {
 |<typeN> <varN>|;
 };
 
-
 struct point {
 	int x;
 	int y;
 };
 
-
 <type> <name> = <value>;
-
 
 struct point Allocation = {2, 3};
 
 Allocation.x 
 
-
-
+the type name is two words: struct point
 
 struct point OtherLocation = NULL;
 
 OtherLocation.y = 12;
 
 
-
-
-
+**************** struct could be composite ************
 struct rectangle {
 	struct point upperLeftCorner;
 	struct point lowerRightCorner;
 };
 
-
 struct rectangle someRectangle = {  {2,3}, {1, 5} };
 
+* Literal is {}.
 
+
+**************** memory allocation ************
+* The orders are specified
+* The sizes of each variable are not specified
 
 Could:
-x						y
+x						    y
 --------------------|-----------------------|
 Could:
 x    y
@@ -79,21 +95,40 @@ Never:
 y    x
 --------
 
+struct twochar {
+	char c1;				//1 for char, 
+	char c2;				//1 for char,
+};
+
+sizeof(twochar) -> 8.
+
+so:
+
+twochar tc1 = {'1', '2'}
+
+char * pch = &(tc1.c1);				//pch point to c1 in tc1 strct twochar
+
+*(pch+1) 	-> 							// may or may not point to c2. undecided. unspecified.
+
+****************************************** OK
+typedef struct Record {
+	char* 		pSKey;						// Pointer to sorting key in recordData
+	char*		pSKeyTerm;				// Pointer to terminating char of sorting key in recordData. It will be set to '\0' while processing. And reset back before output record to file
+	char			chHold;						// Hold the char for *pSKeyTerm. Will be set back before output to file
+	long 			lKey;							// integer number if sorted by number
+	float			fKey;						// floating point number is sorted by float number
+	//
+	char 			recordData[1];			// String for one record. Define here as array of 1. More memory wiill be allocated to hold one line in csv. 
+} Record;
 
 
-typedef struct rectangle rectangle
----------- ----------------- ----------
 
-typedef																	    Part 1
-struct rectangle {														Part 2
-	struct point upperLeftCorner;
-	struct point lowerRightCorner;
-}
-rectangle;																	Part 3
+	
+	
+	
+	
 
-
-
-
+*****************************************************************************************
 
 union somestuff {
 	float thing0;
@@ -120,8 +155,25 @@ Bits:
 
 
 
+
+
 struct: at least the sum of the sizes of its components
 union: at least the size of the largest component
+
+
+
+
+*****************************************************************************************
+
+typedef struct rectangle rectangle
+---------- ----------------- ----------
+
+typedef																	    Part 1
+struct rectangle {														Part 2
+	struct point upperLeftCorner;
+	struct point lowerRightCorner;
+}
+rectangle;																	Part 3
 
 
 typedef 
@@ -157,9 +209,6 @@ volume cylinder = 12;
 
 
 
-
-
-
 int  (*(*callbacks[5])(void))  [3];
 callbacks -- variable name
 --
@@ -173,3 +222,46 @@ callbacks is an array of 5 function pointer
 point to function:
 	take no parameter
 	return a pointer to an int array of 3 elements.
+	
+	
+	
+	
+	
+	
+typedef oldType newtype1, newtype2, newtype3, ...
+
+newtype could be:
+		primitive
+		pointer
+		pointer to function
+	
+typedef char char_t, *char_p, (*fp)(void); 	// declares char_t to be an alias for char
+																// char_p to be an alias for char*
+																// fp to be an alias for char(*)(void)
+
+char_t	ct1, 	ct2;
+char_p	cp1, 	cp2;
+fp 		f1 = compare, 	f2 = addition;			// signature: char compare(); char addition();
+																
+typedef struct point point, *p_point, (*fp)(void); 	// declares char_t to be an alias for char
+																			// char_p to be an alias for char*
+																			// fp to be an alias for char(*)(void)
+	
+Anything here are type names.
+
+
+typedef struct point {
+	int x;
+	int y;
+} point, *pPoint;
+
+struct point		-- old type
+point					-- same as struct point
+pPoint				-- struct point*
+
+char* pCh;
+	pCh is of type of char pointer:		(char*) pCh;
+	pCh point to is a char:				char (*pCh);
+
+
+
