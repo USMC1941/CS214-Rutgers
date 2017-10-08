@@ -1,3 +1,4 @@
+***************************************************************************
 int a = 2;
 int * p = &a;
 
@@ -5,10 +6,8 @@ p = p+1;
 
 printf("%X\n", p);
 
-&a ... 0x100201AF
-
-0x100201B0
-
+&a ... 0x100201AF			p
+         0x100201B0			((void*)p) + 1
 
 short <= int <= long
 
@@ -20,24 +19,45 @@ long c = 2;
 int * p = (int*)&c;
 char * q = (char*)&c;
 
----
 
+
+****************************************************************************
+Pointer Operation:
+	+:			p + 10;			10 depends on the pointer type: int*: 40 bytes, char* 10 bytes
+	-:				p - 10;
+	p2 - p1:	Different in term of pointer type.
+	casting:	(void*), (int*), (char*)*, ...
+	assign:		p1 = &i, p1 = p0; p1 = &(point.x), pf = compare;
+	*p1:			point to
+	p1->x:		pointer part of struct, union
+	(*p1).x		Same as above
+
+
+
+
+*******************************************************************************
+---
 int pid = fork();
 
-if( pid == 0) {
+if (pid == 0) {
+	//child code forward
 	exec("./newcode");
 }
+else {
+	//parent code forward
+}
 
-
-wait( ) ... wait for child process to be done running
-
-
+Parent: 
+	Need to wait for child to finish before exit:
+	wait( ) ... wait for child process to be done running
+Child: 
+	Exit with a return code int main
 
 Zombie process - process that is done running, no executable code, whose parent has not yet waited on it
 
 Orphan process - a process whose parent no longer is in the system
 
-Zombie orphan - process that is done running, no executable code, who has no parent to wait on it
+	? Zombie orphan - process that is done running, no executable code, who has no parent to wait on it
 
 pid
 ppid
@@ -50,7 +70,7 @@ Init - pid 0
 Exceptional Computation:
 	Exceptions: instructions that can not be run
 	
-	Interrupts: stop computation for something important (events)
+	Interrupts: stop computation for something important (events); HW->OS
 		Hardware:	
 		Software:
 	
@@ -59,24 +79,14 @@ Exceptional Computation:
 		* kernel, shell
 		* A type of call. D data. Make system call.
 		
-				
-Signals:
-	software interrupts that may be caused by hardware or software events
+	Signals:	OS->Process
+		software interrupts that may be caused by hardware or software events
+		void (*signal ( int sig, void (*handler) (int)) ) (int);
 
+		
 char array[] = "anA";	
 	
 write(STDOUT, array, 4)
-
-
-
-
-
-void (*signal ( int sig, void (*handler) (int)) ) (int);
-
-
-
-
-
 
 
 *******************************************************************
