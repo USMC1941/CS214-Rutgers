@@ -6,7 +6,7 @@ void bar();
 
 int main(){
 	printf("main() is at: %p \n", &main);
-
+	
 	printf("bar() is at: %p \n", &bar);
 	foo();
 	//
@@ -26,9 +26,9 @@ void foo(){
 	int k[5];
 	int x;
 	printf("In foo() x is at: %p\n", &x);
-	
+
 	void ** y = (void *) &z;
-	*(y+3) = &bar;
+	*(y + 3) = &bar;
 	//
 	int i = 0;
 	for(i = 0; i < 10; i++){

@@ -1,25 +1,21 @@
 #include <stdio.h>
 
 struct X {
-    short s;
-
-    int   i;
-    char  c;
-
+	short s;
+	int   i;
+	char  c;
 };
 
 struct Y {
-    int   i;
-    char  c;
-
-    short s;
+	int   i;
+	char  c;
+	short s;
 };
 
 struct Z {
-    int   i;
-    short s;
-    char  c;
-
+	int   i;
+	short s;
+	char  c;
 };
 
 const int sizeX = sizeof(struct X);
