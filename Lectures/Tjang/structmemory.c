@@ -19,12 +19,49 @@ struct Z {
 	int   i;
 	short s;
 	char  c;
+	struct X  x;
 };
+
+
+union M {
+	char c1;
+	int i2;
+	struct X sX;
+	struct Y sY;
+	struct Z sZ;
+};
+
+
+int getCounter();
+
 
 const int sizeX = sizeof(struct X);
 const int sizeY = sizeof(struct Y);
 const int sizeZ = sizeof(struct Z);
+const int sizeM = sizeof(union M);
 
 int main(){
-	printf("%d  %d  %d", sizeX, sizeY, sizeZ);
+	printf("%d  %d  %d %d\n", sizeX, sizeY, sizeZ, sizeM);
+	
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	printf("%d\n", getCounter());
+	
+}
+
+
+int getCounter() {
+	static int s_counter = 0;
+	
+	return s_counter++;
 }
