@@ -21,8 +21,8 @@ Rather then try to figure out a trick to make string literals changeable (it wil
 
 */
 
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 void main(){
