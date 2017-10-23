@@ -1,0 +1,64 @@
+
+
+Nonblocking calls (IO)
+- returns even if the operation is not complete
+- condition for return is often end of current timeslice
+- often return a status value to indicate how much was completed
+
+Blocking calls
+- do not return until operation is done (period!)
+
+
+
+Blocking IO:
+good:
+	- simpler code
+	- simpler to reason about
+bad:
+	- if it breaks, you are broken (you lose control)
+	- why actively wait? (you lose control)
+
+
+Non-Blocking IO:
+good:
+	- if it breaks, meh (you regain control)
+	- do not actively wait (you regain control)	
+bad:
+	- complex code
+	- harder to reason about
+
+	
+	
+
+float a = sqrt(22);
+a += 2;
+
+
+float sqrt(float num) ..
+
+float (*keepComputing)(float) = sqrt;
+
+
+thread_create(   void* (*fn)(void*),  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+
+	
+	
+	

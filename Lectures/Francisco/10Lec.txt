@@ -1,0 +1,83 @@
+
+malloc strat:
+first fit:
+	- 1st block free and at least as large as allocation
+	good time efficiency, bad space efficiency
+	
+best fit:
+	- best block free as close as possible as size of allocation
+	good space efficiency, bad time efficiency
+	
+worst fit:
+	- pick the biggest possible block free and allocate it no matter what
+	Worst. Allocation. Algorithm. Evar
+
+buddy system:
+	everybody has a buddy!
+	- split successive chunks into halves .. recursively until you get a 'best fit' availble based on:
+		- minimal block size chosen
+		- minimal power of 2 chosen
+
+fragmentation:
+	internal:
+		- free or wasted space within an allocation unit
+	external:
+		- free or wasted space between allocation units
+		
+
+--
+
+
+realloc(void * ptr, size_t size)
+"takes memory that was there and adds more to it"
+0. malloc(size)
+1. memcpy  ( :^) )
+2. free(ptr)
+
+newptr = NULL;
+newptr = (type*)realloc(ptr ... )
+if newptr != NULL
+  .... ptr = newptr;
+  
+  
+  --
+  
+  
+ char * buff = (char*)malloc(10);
+ ....
+int written = 0;
+int amountToWrite = 10;
+int offset = 0;
+
+ int fd = open("./somefile", flags)
+
+ 
+
+while( amountToWrite > 0 )
+{
+	written = write(fd, buff+offset, amountToWrite);
+ 
+	if( written == -1)
+	{
+		//PANIC!!!(!)!
+	}
+	else
+	{
+		amountToWrite -= written;
+		offset += written;
+	}
+ 
+ }
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+

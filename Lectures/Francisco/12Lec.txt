@@ -1,0 +1,76 @@
+
+
+Threads:
+- give a function its own stack in your Process
+ (new 'thread of execution' ... i.e. thread)
+
+-thread
+ ..
+ int * returnValue = (int*)malloc(sizeof(int));
+ *returnValue = 1;
+ pthread_exit( (void*)returnValue);
+-
+
+-thread creator
+...
+pthread_join(&thready, retval);
+int returnValue = *( *( (int**) retval) );
+free( *((int**)retval) );
+-
+
+
+
+user threads:
+OS is unaware of
++ schedule however you want
++ really fast to switch between
+	(don't have to context switch in to OS)
+-/2 user schedulers are complex and often far from bulletproof
+- can not have true parallelism
+- blocking IO stops the whole show
+	(if proc is blocked, can not run scheduler, can't run other threads ... toast)
+
+
+---
+
+TA								TB
+...									....
+lock(mutexA);				lock(mutexA);
+int val = *acct;				int val = *acct;
+val += credit;				val -= debit;
+*acct = val;					*acct = val;
+unlock(mutexA);			unlock(mutexA);
+...									...
+
+
+
+mutex: mutual exclusion device
+- a way to instrument code to delineate a critical section
+- uses the scheduler to protect memory
+- changes return behavior based on locked/unlocked status
+
+
+
+lock( aMutex )
+{
+	while( aMutex != 0 ){}
+	aMutex = pid();
+
+	return 1;
+}
+
+unlock( aMutex )
+{
+	aMutex = 0;
+	
+	return 0;
+}
+
+
+
+
+
+
+
+
+
