@@ -4,41 +4,64 @@ interrupts 		\
 traps				 >  signals
 exceptions		/
 
-F-D-E loop
 
+
+F-D-E loop
 Fetch: load instruction at PC
-Decode: discover operation type ... fetch operands ... latch into ALU ... 
+Decode: discover operation type ... fetch operands ... latch into ALU ...
 Execute: do the thing with the stuff  (and then ++PC)
+
+
+
+
+
+Process Life Cycle:
 
 SP
 
-compiler:
-preprocessor
-	- defines, macros ... performed on code (text replacement) 
+Source --> Executable:
+
+Preprocessor (one c file + bundles of h files --> temporary c file with all preprocessing instruction resolved)
+	- defines, macros ... performed on code (text replacement)
 	- typedefs, enums, struct defs, prototypes ... loaded into environment
-compiler
+	- temporary c file: c file without preprocessing instruction
+
+Compiler (one preprocessed c file (temporary c file) --> object file with import export tables embedded )
 	- typechecking and scanning (enforce grammar rules)
 	- make code ready to convert to assembly (pick locations for vars...)
 	- generate assembly
-assembler
-	- generate machine code from assembly
-linker
-	- load binaries that are not defined in source, but are referred to, into text segment
+	- object file:
+		* code + data in segments (text data bss).
+		* import table: items that has declaration in this processed C file but no definition
+		* export table: items that has definition. Can be used by other object files
 
-	
+
+Assembler (assembly code --> machine code)
+	- generate machine code from assembly
+
+Linker (all the object files + library files --> Executable PE file)
+	- load binaries that are not defined in source, but are referred to, into text segment
+	- library file is bundled object files
+
+Loader (Executable -> running process)
+	- Executable -- Portable Executable(PE) specifications
+	- Dynamic linked library
+
+
+
+
 gcc -c aLibrary.c   ->   aLibrary.o
 gcc mymain.c aLibrary.o   ->   a.out  (including runable code from mymain that references executable code from aLibrary.o)
 
-> ./a.out	
+> ./a.out
 
 a.out <-- program
 OS's representation of running code in memory <-- process
 source code reference to code (i.e. printf()) <-- function
 
-	
 
-for( i = 0; i < n, i++)
-{
+
+for( i = 0; i < n, i++) {
 	f++;
 }
 
@@ -51,17 +74,3 @@ int * array = (int*)malloc....
 ----
 
 more malloc
-
-
-
-
-
-
-
-
-
-
-
-
-
-

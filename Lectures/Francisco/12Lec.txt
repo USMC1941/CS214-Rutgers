@@ -62,7 +62,7 @@ lock( aMutex )
 unlock( aMutex )
 {
 	aMutex = 0;
-	
+
 	return 0;
 }
 
