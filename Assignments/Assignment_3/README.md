@@ -99,7 +99,7 @@ Your threads should write metadata to STDOUT while running. It should be in the 
 ```
 Initial PID: XXXXX
 
-TIDS of all child threads: AAA,BBB,CCC,DDD,EEE,FFF (... etc.)
+PIDS of all child threads: AAA,BBB,CCC,DDD,EEE,FFF (... etc.)
         
 Total number of threads: ZZZZZ
 ```
@@ -117,7 +117,7 @@ user: 0mYYY
 sys: 0mZZZs
  ```
  
- You should run your Project 1 sorter on the same files/directory and record the differences.
+You should run your Project 1 sorter on the same files/directory and record the differences.
  
 You should build a variety of different directory structures and file sizes and test your current sorter and Project 1 sorter on both.
 
