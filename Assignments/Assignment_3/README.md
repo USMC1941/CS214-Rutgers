@@ -15,8 +15,8 @@ Keeping with the spirit of the project, differences between this phase and previ
 * Your code will read in the same movie metadata CSV files and sort the data in them with mergesort. 
 * Your code will also need to scan through the directory it is called on and sort each file in that directory and all files in all subdirectories. 
 * The major differences are that your program will instead spawn a new thread to search each directory and sort each file rather than a new process. 
-  * Since all your computation will be in the same address space, you need not make separate files. 
-* The sorted output of all files will go to a single output file. 
+* Since all your computation will be in the same address space, you need not make separate files. 
+  * The sorted output of all files will go to a single output file. 
 * Be sure that in the case of any bad input or a bad status code that your program fails gracefully, closes files, frees memory and exits threads. 
   * Under no condition should your code crash on a segmentation fault. 
 * As your code runs your threads should output similar metadata to STDOUT as the previous phase. 
@@ -47,7 +47,7 @@ Your code will read in a set of flags via the command line. They are '-c', '-d' 
 * This flag is required. 
 * If it is not present, your code should print an error message, usage information and return.
 
- '-d' indicates a starting directory. 
+'-d' indicates a starting directory. 
  * The program will start at this directory name immediately following '-d' to look for CSV files to sort. 
  * This flag is optional. 
  * If this flag is not present, the default behavior of your code should be to start searching at the current directory.
