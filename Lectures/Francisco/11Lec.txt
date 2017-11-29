@@ -22,13 +22,13 @@ bad:
 Non-Blocking IO:
 good:
 	- if it breaks, meh (you regain control)
-	- do not actively wait (you regain control)
+	- do not actively wait (you regain control)	
 bad:
 	- complex code
 	- harder to reason about
 
-
-
+	
+	
 
 float a = sqrt(22);
 a += 2;
@@ -39,7 +39,7 @@ float sqrt(float num) ..
 float (*keepComputing)(float) = sqrt;
 
 
-thread_create(   void* (*fn)(void*),
+thread_create(   void* (*fn)(void*),  
 
 
 
@@ -55,9 +55,10 @@ thread_create(   void* (*fn)(void*),
 
 
 
+	
+	
+	
 
-
-
-
-
-
+	
+	
+	

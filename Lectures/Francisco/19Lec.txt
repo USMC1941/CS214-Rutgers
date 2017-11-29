@@ -1,0 +1,97 @@
+
+Sockets:
+
+client socket:
+- can connect to server sockets
+- can send/recv random data bytes
+
+server socket:
+- accepts connection requests
+- constructs a new socket connected to the requester
+- sends an acknowledgement of connection accept to requester
+- nothing else!
+
+
+client:
+socket(....)
+
+hostent
+sockaddr_in
+
+connect(....)
+
+
+
+server:
+
+sockaddr_in
+socket(....)
+
+bind()
+
+listen()
+
+accept(...)
+
+
+--
+
+OOP: (Separation, Isolation, 
+- aggregate of data with inherently related functions or functionality
+- Application Programming Interface (API) .. can only make use of an object's functionality through functions that do not expose internal details or data
+- Modularity
+
+
+ISO/OSI 7-layer stack
+Application
+Presentation
+Session
+Transport (TCP) <-- first end-to-end layer ... layer you usually live on when writing code using sockets
+Network (IP)
+Data Link
+Physical
+
+
+IP - Internetworking Protocol:
+0.0.0.0 ... 255.255.255.255
+
+192.168.100.2
+192.168.100.3
+
+00000000.00000000.00000000.10000000
+255.255.255.128
+
+
+Domain Name Service (DNS)
+non-authoritative - local, cached (regional)
+authoritative - often remote, live (super-regional)
+
+Autonomous System (AS)
+- Border Gateway Protocol (BGP)
+
+
+--
+
+
+Look up addr...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+
+const:
+
+const int x = 3;
+
+x = 2;
+
+
+
+movl $1 %eax
+
+
+
+const char * ptr = ...
+
+*ptr = 'b';
+ptr = array;
+
+
+
+const: ?
+	static: all instances see the same var
+	final: V
+	
+
+
+--
+
+
+semaphore:
+
+asychronous: insensitive to ordering of calls
+
+threadsafe: insensitive to identity
+
+why is this good for signal handlers?
+signal handlers can run in any context at any time (between any instructions)
+so ... anything that depends on running in a particular context or in a given order is not a good idea for a signal handler
+
+
+--
+
+
+Sockets
+
+open(path, options)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

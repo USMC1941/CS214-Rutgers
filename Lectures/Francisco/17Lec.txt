@@ -1,0 +1,34 @@
+
+Sockets:
+Networking construct ...
+
+file descriptor:
+	* write
+	* read
+	* close
+	* open
+
+
+Sockets:
+	* API (Application programming interface)
+	* TCP (Think pipe. Connection oriented. Reliable. Slide Windows Algorithms)
+		-> Transmission Control Protocol
+		-> Server and Client
+			-> Client initializes connection
+			-> Server listens for and accepts incoming connections.
+	* UDP (Think mail slot. Transaction-oriented. Message oriented. "Best effort.")
+		-> User Datagram Protocol
+
+
+hostname: either IP address, or parsable to an IP address
+port:
+	- metaphor: frequency - can multiplex comm with no noise
+	- purpose of comm
+	- selects protocol (443 .. HTTPS, 80..  HTTP )
+	- directs comm to application at the IP address
+
+
+	Socket clientSocket = new Socket("lsdkjfldskjf", 10214);
+	
+	BufferedReader inNet = new BufferedReader(new InputStreamReader (clientSocket.getInputStream()));
+	PrintWriter outText = newPrintWriter(clientSocket.getOutputStream());

@@ -1,0 +1,69 @@
+
+Internetworking ..
+
+ISO/OSI
+: International Standards Organization / Open Systems Interface
+
+Canon
+----------------------------------------------------
+App		-- Application: (Browser, socket, etc.)
+Pres		-- Presentation: (http)
+Sess		-- Session: Conversation
+Transp	-- Transport: Sending data from one node to another.
+Net 		-- Network layer: 
+DL 		-- Data link: Data transfer. From one node to another node when they can "see" each other. Linked.
+PHY 		-- Physical: Wiring, Electronic 
+
+Vulgate
+App
+Transp
+Net
+DL/PHY
+
+Naming: semantic name -> IP address
+IP lookup
+
+routing: picking some series of links to move a resource from an arbitrary source to an arbitrary target node
+
+P < NP < NPc
+
+hop-by-hop (store and forward)
+
+E-F
+
+
+Networking layer:
+- IP addresses
+- concerned with routing
+	-> figuring out which machine you are directly connected to to forward a message to to get it 'closer' to the target
+
+
+DL layer:
+- MAC address
+- concerned with point-to-point communication
+	-> manages the shared channel between this machine and another that it is directly connected to
+
+
+PHY:
+- modulate medium to physically represent information
+
+
+
+
+Trans layer:
+Sockets
+1st end-to-end layer
+
+Message goes in ...
+- fragment message and manage sending the fragments (packets)		\
+- sequence numbering, ECC																	|
+																													|
+- reliable delivery(++)																					> TCP (packet data, connection-oriented)
+- (re)ordering of packets																			|
+- flow control																								|
+- congestion control																					/
+
+
+UDP
+- Datagrams
+- connectionless

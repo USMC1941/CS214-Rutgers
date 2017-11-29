@@ -1,0 +1,67 @@
+
+Process v. threads:
+
+Process:
+- slow/expensive to create:
+	.. need to allocate a whole proc .. more memory/time/work to create one
+
++/-: runs in different address space
+	-: hard to share data (perhaps .. accidentally)
+	+: hard to ruin data
+
+-: slow to switch between
+	.. OS needs to run scheduler (context switch) .. need to copy whole proc in/out of mem (maybe) .. lose optimizations
+	
+
+
+Threads:
++ fast/cheap to create:
+	.. allocate a new stack .. pretty much it
+
++/-: runs in same address space
+	+: easy to share data (perhaps .. accidentally)
+	-: easy to ruin data
+
++: fast(er) to switch between
+	.. OS may need to run scheduler (if kernel thread) .. need to copy whole proc in/out of mem (maybe) .. less loss of optimizations(!)
+
+
+--
+
+Threads
+
+pthread_create( .... )
+
+void* func(void *)
+
+float f(int x, char y, double z)
+{
+	...
+}
+
+struct data
+{
+	int x;
+	char y;
+	double z;
+}
+
+..
+struct data * passParams = (struct data*)malloc(sizeof(struct data));
+passParams->x = ..
+passParams->y = ..
+passParams->z = ..
+pthread_create( .... , (void*)passParams, ... );
+
+
+float f(int, char, double)
+
+
+void*fpthing( void * param )
+{
+	struct data * parameters = (struct data *)param;
+	int x = parameters->x;
+	char y = parameters->y;
+	double z = parameters->z;
+	...
+}

@@ -3,11 +3,11 @@ malloc strat:
 first fit:
 	- 1st block free and at least as large as allocation
 	good time efficiency, bad space efficiency
-
+	
 best fit:
 	- best block free as close as possible as size of allocation
 	good space efficiency, bad time efficiency
-
+	
 worst fit:
 	- pick the biggest possible block free and allocate it no matter what
 	Worst. Allocation. Algorithm. Evar
@@ -23,7 +23,7 @@ fragmentation:
 		- free or wasted space within an allocation unit
 	external:
 		- free or wasted space between allocation units
-
+		
 
 --
 
@@ -38,11 +38,11 @@ newptr = NULL;
 newptr = (type*)realloc(ptr ... )
 if newptr != NULL
   .... ptr = newptr;
-
-
+  
+  
   --
-
-
+  
+  
  char * buff = (char*)malloc(10);
  ....
 int written = 0;
@@ -51,12 +51,12 @@ int offset = 0;
 
  int fd = open("./somefile", flags)
 
-
+ 
 
 while( amountToWrite > 0 )
 {
 	written = write(fd, buff+offset, amountToWrite);
-
+ 
 	if( written == -1)
 	{
 		//PANIC!!!(!)!
@@ -66,10 +66,10 @@ while( amountToWrite > 0 )
 		amountToWrite -= written;
 		offset += written;
 	}
-
+ 
  }
-
-
+ 
+ 
 
 
 

@@ -1,0 +1,97 @@
+
+
+//start: main () -> dirscan( arg )
+
+dirscan:
+  opendir arg
+  while readdir arg != NULL
+  {
+	if d_type == DT_REG
+		fork .. 
+		if ( shouldrunsort)
+			filesort( name )
+	elseif d_type == DT_DIR
+		fork ..
+		if( shouldrundirscan )
+			dirscan( name )
+  }
+  waitpid( ... )
+//once all children are done ... can terminate
+  
+
+filesort:
+	check to see if arg is a .csv
+	check columns of arg
+	s'good: sort it
+
+	
+
+*******
+
+
+Synch stuff:
+
+monitors:
+
+mechanisms
+semaphores:
+
+barriers:
+
+condition vars:
+
+mutexes:
+
+
+primitives:
+test-and-set
+- test value and set to be a given value if true, else not .. returns current value (after potential set)
+mutex
+protect data / critical code section
+
+fetch-and-incr
+- get current value and increment
+barrier
+protect dependencies / code execution or computation
+
+cmp-and-swap
+- swap data in two memory locations based on some logical condition
+condition variables
+protect semantics / operation of machine or software state
+
+
+
+semaphores, whence thou?
+- asynchronous threadsafe
+
+... block on both 'lock' and 'unlock'
+
+vs ... mutexes:
+mutexes: 
+				must call lock before unlock
+				-> sensitive to ordering
+				
+				break on double lock ... undefined on double unlock
+				-> sensitive to identity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

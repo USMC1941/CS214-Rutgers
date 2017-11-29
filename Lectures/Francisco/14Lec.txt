@@ -1,0 +1,98 @@
+
+Synch:
+'atomic' hardware instruction for synch primitives
+
+SW:
+SYS:
+	- can turn off interrupts
+	- takes forevers to do all context switches just to run a few instructions 
+USR:
+	- can not turn off interrupts
+	- so ... USR-implemented synch can itself be interrupted... causing the same problem as shared data to begin with
+	
+
+mutual exclusion:
+mutex - lock/unlock
+- protects memory using the scheduler - does not return until lock is unlocked
+
+deadlock 
+0. mutual exclusion
+1. no preemption
+2. hold and wait
+3. circular wait
+
+0. global ordering on all mutexes
+1. rising/falling permission 
+
+lock(mA)
+lock(mB)
+..
+unlock(mB)
+........
+lock(mB)
+..
+unlock(mB)
+
+unlock(mA)
+
+
+
+mutexes - synch on code block (critical section)
+(data)
+
+
+barrier - synch on max value of counter (code segment/region/area in code)
+(computation)
+
+operation: increment counter and reset counter
+- all threads to hit barrier increment it
+- last thread to increment barrier increments it to the max/target value .. it resets the barrier
+- once barrier is reset, increment call returns and all get to continue
+
+primitive: fetch-and-increment
+
+
+
+condition variables - synch on an event (detect when some value is set ... )
+(event)
+
+operation: wait until something occurs
+- all threads calling wait block until condition
+- condition is signalled by a detector thread calling signal() ( to wake up one) or broadcast() (to wake up all)
+
+primitive: compare-and-swap
+
+
+--
+
+Synchronization plus logic:
+Monitor
+- Object-Oriented synch supervisor
+- monitor is given all primitives and controls access to them
+- if a thread wants access to a resource, asks monitor
+
+--
+
+Edsger Dijkstra
+
+Semaphores
+p() - decr - consumer/wait
+v() - incr - producer/notify
+
+sem_wait()		- decrement shared counter .. blocks if shared counter is 0
+sem_notify()	- increment shared counter .. blocks if shared counter is max value
+
+asynchronous threadsafe (!!!!  8^D)
+
+lock(m)  vs  sem_notify(s)
+lock(m)		sem_notify(s)
+
+unlock(m)	vs	sem_wait(s)
+unlock(m)			sem_wait(s)
+
+
+
+TA					TB
+lock(m)			unlock(m)
+
+sem_wait(s)	sem_notify(s)

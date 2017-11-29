@@ -1,0 +1,146 @@
+Thread:
+	* Each one has its own stack
+	* Each one will run on a shared CPU 
+	* All the other memory shared
+	* Context Switch Ex:
+		-> n-core	number of core / CPU: 4
+		-> n-thread number of thread of all process: 2400
+		-> So 600 threads share a CPU
+		-> Context Switch:
+			* Executing thread A
+			* Store all registers for current active thread A going into dormant
+			* Retrieve all registers for one dormant thread B becoming active
+			* Executing thread B
+
+
+Synchronization:
+
+mutex: 
+	-> mutual exclusion device
+	-> Think lock!
+
+
+TA								TB
+lock(mutexA);				lock(mutexA)
+shared += 2;				shared -= 2;
+unlock(mutexA);			unlock(mutexA)
+..
+shared = 1;
+
+Who locks?
+USR:
+- USR has no control of scheduler ( :^( )
+- USR can always be interrupted ( x^P )
+
+SYS:
+- just too #$! slow to context switch ... twice ... into OS and out for mutexes ( >.< )
+
+
+
+
+TA								TB
+
+shared = 1;				shared = 1;
+
+
+int lock(int mutexNum) {
+	while( mutexNum != 0 ) {
+
+	}
+	mutexNum = 1;
+
+	return 1;
+}
+
+
+compiler directives:
+anything with: "__" in front is usually a gcc compiler directive (command to compiler)
+
+fprintf(stderr, "Error on line %d in file %s ... \n", __LINE__,  __FILE__);
+
+
+
+
+
+
+
+implementing synchronization: (synchronization primitives)
+* Types:
+	* test-and-set
+	* compare-and-swap
+	* fetch-and-increment
+* Consists of 2 operations 
+* Atomic operations
+	* Cannot be divided
+	* Because these operations happen atomically, they can be used safely without mutual exclusion
+
+
+
+TA								TB
+lock(mutexA);				lock(mutexA)
+shared += 2;				shared -= 2;
+unlock(mutexA)
+lock(mutexB);
+other =1;						unlock(mutexA)
+unlock(mutexB)
+thing = 12;
+
+
+
+
+stuff = thing + 47.1;
+
+
+mcguffin = 42;
+unlock(mutexA);			
+pthread_exit(0);
+
+
+--
+
+
+TA								TB
+lock(mutexA);				lock(mutexB)
+lock(mutexB);				lock(mutexA);
+shared = 2 + other;		shared -= other;
+
+									unlock(mutexA)
+unlock(mutexA)			unlock(mutexB)
+unlock(mutexB)
+
+--
+
+lock(mutexF)				lock(mutexX)
+lock(mutexZ)				lock(mutexZ)
+
+--
+
+TA								TB
+lock(mutexA);				lock(mutexA)
+lock(mutexB);				lock(mutexB);
+shared = 2+other;		shared -= other;
+
+									unlock(mutexA)
+unlock(mutexA)			unlock(mutexB)
+unlock(mutexB)
+
+lock(mutexA)
+lock(mutexB)
+shared = sqrt(other);
+unlock(mutexA)
+unlock(mutexB)
+
+- global ordering
+- rising phase/falling phase (i.e. unique calls per mutex per thread)
+
+Conditions for deadlock:
+0. mutual exclusion
+1. hold and wait
+2. no preemption
+3. circular wait
+
+* Deadlock:
+	* A task requires two resource (S1, S2) to complete
+	* Thread A gets lock for S1, wait for lock to S2
+	* Thread B gets lock for S2, wait for lock to S1
+	* Deadlock
