@@ -99,7 +99,7 @@ The server will open a port and wait for connection requests.
 * On connection, it will spawn a service thread to handle that connection and go back to waiting for requests.
 *  Each service thread should read in a client request:
     * If it is a sort request, it should perform the sort and store the results at the server 
-   *  If it is a dump request, it should merge the current collection of sorted results into one sorted list and send the result back to the client. 
+    *  If it is a dump request, it should merge the current collection of sorted results into one sorted list and send the result back to the client. 
 *  You may want/need to make use of synchronization constructs like mutex_locks, semaphores, and/or condition variables in your implementation to prevent memory corruption.
 
 The server will run until stopped by a `SIGKILL` (i.e. kill `<pid of server>`).
@@ -140,7 +140,7 @@ This would create a pool of 4 sockets.
 
 Every thread should request access to one of the sockets. 
 * If no sockets are currently available, that thread should sleep. (hint: semaphores are built for this kind of work).
-*  Document your design in your README.
+* Document your design in your README.
 
 ### Server Sessions (10 points):
 When a client connects a server for the first time, it should first request a session ID. 
