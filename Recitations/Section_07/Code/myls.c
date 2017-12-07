@@ -1,3 +1,10 @@
+/**
+ * A sample implementation of the "ls" command in C.
+ * After compile to executable file "myls" using gcc, usage is:
+ *
+ * ./myls
+ * ./myls foldername
+ */
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/stat.h>

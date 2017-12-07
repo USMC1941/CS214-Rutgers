@@ -12,7 +12,10 @@ Sess		-- Session: Conversation
 Transp	-- Transport: Sending data from one node to another.
 Net 		-- Network layer: 
 DL 		-- Data link: Data transfer. From one node to another node when they can "see" each other. Linked.
+					Host to host inside one network
+					ID with MAC address
 PHY 		-- Physical: Wiring, Electronic 
+
 
 Vulgate
 App

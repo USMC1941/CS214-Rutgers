@@ -1,0 +1,59 @@
+ISO/OSI 7 layer stack:
+Application - program(!)
+				Browser
+				Sorter
+				SSH
+				FTP
+				Game
+Presentation - Anything that needs to happen to msg/data to make it usable by next layer (decryption, transcoding, etc.)
+				Translate
+				Encryption
+				Transcoding ASCII and EBCDIC
+Session - (e.g. synch across connections), logic/state across msgs from one socket or across multiple sockets
+				Conversation
+				Syntax  Grammar
+				Protocol
+				HTTP
+				Oracle
+Transport - delivery services (first end-to-end layer): QoS, throughput, reliability
+				Information
+				Stream Connection
+				DataGram Message
+Network - select P2P link in order to forward (route) data through the network
+				Fragment of information
+				Transfer of package
+				Talking about packet
+				Host talk to another host in another network
+				ID IP address (MAC address not useful at all)
+				Router / Routing
+Data Link - point-to-point transfer from one machine to another that are 'directly' connected
+				Host talk to host in the same network
+				MAC address as ID
+Physical - convert bits to physical phenomena and vv
+				Wire
+
+
+4 layer stack (the IT special):
+App
+Trans
+Net
+DL/PHY
+
+
+Transport layer protocols:
+UDP v. TCP
+
+UDP ... port
+TCP ... port + all the trimmings
+
+TCP - connection-oriented (stateful)
+UDP - no connection (stateless)
+
+State(!):
+Representation of other actions that governs how the next input will be interpreted (i.e. context)
+
+write(sd, &buf, 10)
+write(sd, &buf, 10)
+
+HTTP - stateless
+? --> how do stateful web service operate then?
