@@ -1,0 +1,58 @@
+
+2?211201009409o19
+
+
+variable length types:
+0. delimiter - data continues until you find a control character
+	benefit: just read until you find deimiter, then done with that segment (yay)
+	pitfall: if your delimiter appears in your data, your protocol is BROKE (waaah)
+
+1. header - state/control information first that changes interpretation of data afterward
+	benefit: all state is known a-priori
+	pitfall: can't adjust as you go/need to know all information at sender before you start
+
+**always be careful that your state/metadata/header can not possibly be interpreted as data**
+	
+	
+
+int written = write(fd, buf, 10);
+//check for error and not done...
+write(fd, buf+written, 10-written);
+
+int array[] = {1, 2, 3, 4, 5};
+int * p = array;
+p[20] = 2;
+
+--
+
+Distributed Systems
+- multiple cooperating subsystems bulit in such a manner so as to seem like one system
+
+problem .. fault model
+
+Failstop - system halts, and yells
+Crash - system halts, and is quiet (silent failure)
+Byzantine - sometimes exhibits arbitrary behavior
+
+Fundamental issue ... lack of global knowledge
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

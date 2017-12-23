@@ -140,7 +140,7 @@ It would be a very good idea to automate as much as you can.
 
 ## Results
 
-Submit your "sorter_thread.c", "sorter_thread.h" and "mergesort.c" as well as any other source files your header file references.
+Submit your `"sorter_thread.c"`, `"sorter_thread.h"` and `"mergesort.c"` as well as any other source files your header file references.
 
 Document your design, assumptions, difficulties you had and testing procedure. 
 * Include any test CSV files you used in your documentation. 
@@ -170,6 +170,6 @@ Implement the fastest (wall clock time) program.
 
 Implement a fast (wall clock time) program. 
 
-If your program is not within the top 10% but is within the top 30% of timed finishers, you will receive 10 points.
+If your program is not within the top 10% but is within the top 30% of timed finishers, you will receive 20 points.
 
 * In the event that all groups submit programs that run with times that are not different in statistically significant ways, we will give everyone 5 points extra credit.

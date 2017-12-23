@@ -1,0 +1,81 @@
+
+DS:
+version control - 
+distributed transactions:
+A tomic: 2-phase locking/commit (maintain a rollback log)
+C onsistent: ...  read/write quorums
+I solated: 
+D urable: 
+
+Availability
+Reliability
+Scalability
+
+mutiple copies:
+A: check - likely to be one close/not in use
+R: check - redundant is trivially reliable
+S: ?  - depends - how are transactions managed?
+
+
+
+presume 5 nodes:
+Nw == 4
+Nr == 2 
+
+Nw == 5
+Nr == 1
+
+Nw == 2
+Nr == 4
+
+
+Physical Partitioning:
+multiple distinct systems/subsystems/nodes
+lack of global knowledge
+
+failures:
+Failstop
+Crash
+Byzantine
+
+Parity Bit:
+Even XOR Odd
+- add a bit to make the sum of 1s in the data be even or odd (based on protocol)
+
+1000110_0
+
+
+
+--
+
+3 classes:
+Identification
+Mechanism
+Application
+
+C
+files
+procs
+threads
+synchronization
+sockets (networking)
+DS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

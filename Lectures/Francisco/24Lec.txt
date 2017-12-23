@@ -1,0 +1,56 @@
+
+
+work == "content/information/presentation"
+
+work now: X
+
+work later: Y
+
+X ~ 3.5*Y
+
+--
+
+Distributed Systems
+
+reliability
+availability
+scalability
+
+
+Physical Partition:
+Failstop
+Crash
+Byzantine
+
+
+how often:
+exactly once
+at most once
+at least once
+
+Transaction:
+A	tomic
+C	onsistent
+I	solated
+D	urable
+
+W: 4
+R : 2
+
+A B C D X F
+2	2	2 2 X
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

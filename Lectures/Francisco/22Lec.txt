@@ -1,0 +1,85 @@
+
+State(?)
+
+Coordinating Generals
+Gen. A: N/2: emit messenger, but ask for ACK
+Gen. B: N/2: Get msg ... send ACK .. but ACK IS a msg... so, ask for ACK of ACK
+
+NME: 2/3*N
+
+
+
+Byzantine Generals
+Gen. A: N/2: emit messenger, but ask for ACK
+Gen. B: N/2: Get msg ... send ACK .. but ACK IS a msg... so, ask for ACK of ACK
+
+NME: 2/3*N
+
+... but ... Gen.s may be corruptable, or senile, or just mean (or mistaken!) ... and may supply incorrect information
+
+
+
+Coordinating Messages
+Host A: N/2: emit message, but ask for ACK
+Host B: N/2: Get msg ... send ACK .. but ACK IS a msg... so, ask for ACK of ACK
+
+
+Failstop: Halt on error and inform
+
+Crash: Half on error and stay silent
+
+Byzantine: ? Arbitrary behavior
+
+
+Godel's Incompleteness Theorem
+Any discrete mathematical system can be either correct or complete, but not both
+
+(recursive v. recursive-enumerable)
+
+correct	complete
+	5					5
+
+correct - computing on some representation of input gives the expected/proscribed representation of ouput
+
+complete - all representations of inputs result in some representation of an ouput
+
+
+0000 0 00
+
+12.34
+1234E2
+
+.0001 1 11
+.1000 0 01
+
+0.0000001
+1.0
+------------------
+1.0000001
+
+.1000  0 01
+
+--
+
+Distributed Systems:
+
+How long should I wait for a message?
+Correct - wait until you get it ... potentially forever
+Complete - pick some boundary, if you get it before then, yay, if not, declare Failstop
+
+
+at least once: - essentially stateless, can retry without penalty
+at most once: - if it didn't work, roll back and try again (transaction!)
+exactly once: -   8^O
+
+
+1B/32KB
+
+32KB/32KB
+
+
+
+
+
+
+
