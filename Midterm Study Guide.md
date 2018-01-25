@@ -62,7 +62,7 @@ Below are some readings that highlight these differences.
 7.3. Directives
 
 
-## Computer Systems: A Programmer's Perspective (2nd Edition)
+## Computer Systems: A Programmer's Perspective (3rd Edition)
 
 ### Memory Allocation
 
