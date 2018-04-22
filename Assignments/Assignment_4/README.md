@@ -40,7 +40,7 @@ Remember, the server is just reading bytes from a socket. It does not know intri
 Your protocol must allow it to, at minimum, separate the data to sort from the column name to sort. 
 
 Beware of using special characters to denote commands or separators. 
-* For instance, you could use ‘X’ to indicate the end of a block of a CSV file, but what if the character ‘X’ is part of the data in the CSV file? 
+* For instance, you could use 'X' to indicate the end of a block of a CSV file, but what if the character 'X' is part of the data in the CSV file? 
  * You need to be sure that, however your protocol is built, commands and\or separators can not be misinterpreted as data.
 
 Be careful with control characters. 
@@ -65,19 +65,23 @@ Your code must take in a command-line parameter to determine which value type (c
 
 The first parameter your program will be `'c'` to indicate sorting by column, the second will `'h'` to indicate the hostname of the server, and the third will be `'p'` to indicate the port number the server is listening on. ALL of these parameters are required for the program to run:
 
-`./sorter_client -c food -h grep.cs.rutgers.edu -p 12345`
+```sh
+./sorter_client -c food -h grep.cs.rutgers.edu -p 12345
+```
 
  > Be sure to check the arguments are there and that they correspond to a listed value type (column heading) in the CSV.
 
-The fourth parameter to your program will be ‘-d’ indicating the directory the program should search for .csv files. 
+The fourth parameter to your program will be `'-d-'` indicating the directory the program should search for .csv files. 
 * This parameter is optional. 
 * The default behavior will search the current directory.
 
-The fifth parameter to your program will be ‘-o’ indicating the output where the sorted CSV should be written to. 
+The fifth parameter to your program will be `'-o'` indicating the output where the sorted CSV should be written to. 
 * This parameter is optional. 
 * The default behavior will be to output in the same directory as the source directory.
 
-`./sorter_client -c food -h grep.cs.rutgers.edu -p 12345 -d thisdir/thatdir -o anotherdir`
+```sh
+./sorter_client -c food -h grep.cs.rutgers.edu -p 12345 -d thisdir/thatdir -o anotherdir
+```
 
 
 ### b. Operation
@@ -87,9 +91,11 @@ Your client should traverse all subdirectories under the directory it is given.
 * Each thread it spawns should read in the file, construct a search request, connect to your server, send the request to your server and then wait for and read back the server’s response to be sure the file was sorted. 
 * Once the client has sent all files under the search directory to the server, it should send the server another request to give it the sorted version of all the files it was sent.
 
-When the server responds and sends back the sorted version of all the files, the client should output a SINGLE  CSV file named:
+When the server responds and sends back the sorted version of all the files, the client should output a SINGLE CSV file named:
 
-`AllFiles-sorted-<fieldname>.csv`
+```
+AllFiles-sorted-<fieldname>.csv
+```
 
 The client need not output anything to `STDOUT`.
 
@@ -106,7 +112,9 @@ The server will run until stopped by a `SIGKILL` (i.e. kill `<pid of server>`).
 
 To `STDOUT`, output a list of the ip addresses of all the clients that have connected: (?-> when?)
 
-`Received connections from: <ipaddress>,<ipaddress>,<ipaddress>,…`
+```sh
+Received connections from: <ipaddress>,<ipaddress>,<ipaddress>,...
+```
 
 ### c. Structure
 
@@ -133,7 +141,10 @@ Here are some extra credit options for you. You can choose to do either, both, o
 ### Socket Pool (10 points):
 On the client side, implement a socket pool whose size is given as an input parameter to your program. 
 
-E.g. `./sorter_client -c food -h grep.cs.rutgers.edu -p 12345 -s 4`
+E.g.
+```sh
+./sorter_client -c food -h grep.cs.rutgers.edu -p 12345 -s 4
+```
 
 This would create a pool of 4 sockets. 
 * All communications are limited to those 4 sockets. 
