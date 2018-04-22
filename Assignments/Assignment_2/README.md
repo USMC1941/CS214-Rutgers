@@ -39,28 +39,36 @@ Records will be stored in .csv files in the provided directory. As mentioned abo
 Remember, the first record (line) is the column headings and should not be sorted as data. 
 
 Your code must take in a command-line parameter to determine which value type (column) to sort on. 
-* If that parameter is not present (?-> throw an error, or default behavior).
+* If that parameter is not present (? -> throw an error, or default behavior).
 
-The first argument to your program will be '-c' to indicate sorting by column and the second will be the column name:
+The first argument to your program will be `'-c'` to indicate sorting by column and the second will be the column name:
 
-`./sorter -c food`
+```sh
+./sorter -c food
+```
 
 > Be sure to check the arguments are there and that they correspond to a listed value type (column heading) in the CSV.
 
-For this phase you'll extend your flags from one to three. The second parameter to your program will be `‘-d’` indicating the directory the program should search for .csv files. This parameter is optional. The default behavior will search the current directory.
+For this phase you'll extend your flags from one to three. The second parameter to your program will be `'-d'` indicating the directory the program should search for .csv files. This parameter is optional. The default behavior will search the current directory.
 
-`./sorter -c food -d thisdir/thatdir`
+```sh
+./sorter -c food -d thisdir/thatdir
+```
 
-The third parameter to your program will be ‘-o’ indicating the output directory for the sorted versions of the input file. This parameter is optional. The default behavior will be to output in the same directory as the source file.     
+The third parameter to your program will be `'-o'` indicating the output directory for the sorted versions of the input file. This parameter is optional. The default behavior will be to output in the same directory as the source file.     
 
-` ./sorter -c  movie_title -d thisdir -o thatdir`
+```sh
+./sorter -c  movie_title -d thisdir -o thatdir
+```
 
 ### b. Operation
 Your code will be reading in and traversing the entire directory. 
 
 In order to run your code to test it, you will need to open each CSV and read it for processing:
 
-` ./sorter -c  movie_title -d thisdir -o thatdir`
+```sh
+./sorter -c  movie_title -d thisdir -o thatdir
+```
 
 Your code's output will be a series of new CSV files outputted to the file whose name is the name of the CSV file sorted, with `"-sorted<fieldname>"` postpended to the name.
 
@@ -72,7 +80,7 @@ On each new directory you encounter, you should `fork()` a child process to proc
 
 To `STDOUT`, output the following metadata in the shown order:
 
-```
+```sh
 Initial PID: XXXXX
 PIDS of all child processes: AAA,BBB,CCC,DDD,EEE,FFF, etc
 Total number of processes: ZZZZZ
@@ -101,11 +109,13 @@ Submit your `"sorter.c"`, `"sorter.h"` and `"mergesort.c"` as well as any other 
 Here are some extra credit options for you. You can choose to do either, both, or neither.
 
 ### Extra Credit (10 points):
-Interpret the -c option as a comma separated list of fields. Cascade your sort over the fields. 
+Interpret the `'-c'` option as a comma separated list of fields. Cascade your sort over the fields. 
 
 For example, if the command is:
 
-`./sorter -c food,drink,price`
+```sh
+./sorter -c food,drink,price
+```
 
 The sorter should sort first on the field food, then on drink, then on price. 
 
@@ -117,7 +127,7 @@ Document your algorithm and show examples of some runs of your program on test d
 
 
 ### Extra Credit (10 points):
-Create a metadata output file in addition to STDOUT. 
+Create a metadata output file in addition to `STDOUT`. 
 * In this file, output the hierarchy of forked process ids and their associated directory/file names. 
 * If one views this file, it should be clear which processes forked which processes, and be able to follow the execution of code. 
 
@@ -156,6 +166,4 @@ A: Yes
 
 ### Q: Can the command line parameters appear in any order?
 
-A: It would be best if you could handle them in any order, but we will only test in the order shown
-
-
+A: It would be best if you could handle them in any order, but we will only test in the order shown.
