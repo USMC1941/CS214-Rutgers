@@ -19,7 +19,7 @@ Keeping with the spirit of the project, differences between this phase and previ
   * The sorted output of all files will go to a single output file. 
 * Be sure that in the case of any bad input or a bad status code that your program fails gracefully, closes files, frees memory and exits threads. 
   * Under no condition should your code crash on a segmentation fault. 
-* As your code runs your threads should output similar metadata to STDOUT as the previous phase. 
+* As your code runs your threads should output similar metadata to `STDOUT` as the previous phase. 
 * Each thread should output the number of threads it created along with their threadIDs. 
 * Finally, you should study the differences between threads and processes for multicomputing. 
 
@@ -29,36 +29,34 @@ The metrics you should compute are detailed below.
 
 ### a. Command line flags
 
-Your code will read in a set of flags via the command line. They are '-c', '-d' and '-o'.
+Your code will read in a set of flags via the command line. They are `'-c'`, `'-d'` and `'-o'`.
 
 > Note: 'optional' and 'mandatory' below refer to your code's operation only. 
 > 
-> You *must* implement all three flags. 
+> You *must* implement and support all three flags. 
 > 
 > Mandatory flags must be present for your code to run. 
 > 
-> Optional flags may or may not be present. 
+> Optional flags may or may not be present.
 > If they are not, your code should take the specified default behavior. 
-> 
-> You *must* support all flags.
 
-'-c' indicates sorting by a column. 
-* The files read in by your code should be sorted by the column name that immediately follows '-c'. 
+`'-c'` indicates sorting by a column. 
+* The files read in by your code should be sorted by the column name that immediately follows `'-c'`. 
 * This flag is required. 
 * If it is not present, your code should print an error message, usage information and return.
 
-'-d' indicates a starting directory. 
- * The program will start at this directory name immediately following '-d' to look for CSV files to sort. 
+`'-d'` indicates a starting directory. 
+ * The program will start at this directory name immediately following `'-d'` to look for CSV files to sort. 
  * This flag is optional. 
  * If this flag is not present, the default behavior of your code should be to start searching at the current directory.
 
-'-o' indicates the output directory for the sorted file. 
-* The program will store the sorted file to the directory name immediately following the '-o'. 
+`'-o'` indicates the output directory for the sorted file. 
+* The program will store the sorted file to the directory name immediately following the `'-o'`. 
 * This flag is optional. 
 * If this flag is not present, the default behavior of your code should be to store the sorted file in the current directory.
 
 These flags may be defined in any order. For instance:
-```
+```sh
 $ ./sorter -c  movie_title -d thisdir -o thatdir
  
 $ ./sorter -d thisdir -o thatdir -c movie_title
@@ -80,13 +78,15 @@ Your code will be reading in and traversing entire starting directory and each c
 
 Your code's output will be single CSV file outputted to a file named:
 
-`AllFiles-sorted-<fieldname>.csv`
+```
+AllFiles-sorted-<fieldname>.csv
+```
 
 * Your code should create a new thread to handle each subdirectory found, and each file found. 
 * Each file thread should read in and sort that file using Mergesort. 
-  * You are welcome to implement another sorting algorithm, but it must be written entirely your self. 
+  * You are welcome to implement another sorting algorithm, but it must be written entirely yourself. 
 * Once sorted, instead of writing out the sorted version, your file threads should write their data in to some common data structure in the heap. 
-* Once all CSV files have been sorted your code must take the individually-sorted files and integrate all the results to create a single sorted file containing all the records read in.
+* Once all CSV files have been sorted, your code must take the individually-sorted files and integrate all the results to create a single sorted file containing all the records read in.
 * It would be advisable to insert the per-file data in to a globally-accessible sorted data structure. 
   * Be sure to keep this data structure propertly synchronized, however.
 * You will need to make use of synchronization mechanisms to be sure that your updates are handled in a consistent and coherent manner.
@@ -94,9 +94,9 @@ Your code's output will be single CSV file outputted to a file named:
 ### d. Metadata
 
 
-Your threads should write metadata to STDOUT while running. It should be in the following format and order:
+Your threads should write metadata to `STDOUT` while running. It should be in the following format and order:
 
-```
+```sh
 Initial PID: XXXXX
 
 PIDS of all child threads: AAA,BBB,CCC,DDD,EEE,FFF (... etc.)
@@ -107,9 +107,9 @@ Total number of threads: ZZZZZ
 
 ### e. Analysis
 
-Lastly, you will use the time utility to time the execution of your program:
+Lastly, you will use the `time` utility to time the execution of your program:
 
-```
+```sh
 $ time ./sorter -c  movie_title  -d thisdir -o thatdir
 
 real: 0mXXX
@@ -122,14 +122,14 @@ You should run your Project 1 sorter on the same files/directory and record the 
 You should build a variety of different directory structures and file sizes and test your current sorter and Project 1 sorter on both.
 
 The goal is to see how multiprocessing compares in speed to multithreading. See how the two compare with:
-* long subdirectory chains
-* lots of files in a single directory
-* combinations of the two
+* Long subdirectory chains
+* Lots of files in a single directory
+* Combinations of the two
 
 In particular, see how the time differs as the number of files and/or directories increase. 
 
 * For instance, collect timing information for both programs with a single directory and 1, 2, 4, 8, 16, 32, 64, 128, 256, 512 and 1024 files. 
-* Plot the time taken vs number of files to see if there is a definite trend for both programs.
+* Plot the time taken vs. number of files to see if there is a definite trend for both programs.
 
 It would be a good idea to run each test multiple times and average the results. 
 * Other users, the speed of the hard drives, the OS scheduler, the difficulty in sorting the files, and any number of other factors may alter your results. 
