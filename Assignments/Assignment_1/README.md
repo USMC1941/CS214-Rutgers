@@ -35,6 +35,7 @@ soup,200,12
 ```
 
 Sorting the CSV above on the 'calories' value type:
+
 ```
 food,calories,fat
 celery,-10,0
@@ -53,7 +54,9 @@ Your code must take in a command-line parameter to determine which value type (c
 
 The first argument to your program will be `'-c'` to indicate sorting by column and the second will be the column name:
 
-`./sorter -c food`
+```sh
+./sorter -c food
+```
      
 > Be sure to check that the arguments are there and that they correspond to a listed value type (column heading) in the CSV.
 
@@ -62,7 +65,9 @@ The first argument to your program will be `'-c'` to indicate sorting by column 
 
 Your code will be reading the CSV to be sorted from `STDIN`. In order to run your code to test it, you will need to open the CSV and read it in to the `STDIN` for your code:
 
-`cat input.file | ./sorter -c  movie_title`
+```sh
+cat input.file | ./sorter -c  movie_title
+```
 
 The line above, if entered on the terminal, will open the file `"input.file"` and read it in to some executing code named `"sorter"`, which was invoked with the parameters `"-c"` and `"movie_title"`.
 
@@ -70,7 +75,9 @@ Your code's output will be a new CSV file outputted to `STDOUT`. You should outp
 
 For testing purposes you can redirect `STDOUT` to a file:
 
-`cat input.file | ./sorter -c  movie_title      > sortedmovies.csv`
+```sh
+cat input.file | ./sorter -c  movie_title > sortedmovies.csv
+```
 
 
 ### c. Structure
