@@ -3,10 +3,8 @@
 #include <string.h>
 #include "stuff.h"
 
-int main(int argc, char ** argv)
+int main(int argc, char **argv)
 {
-
 	printf(" other things %d\n", values(6));
-
 	return 0;
 }
