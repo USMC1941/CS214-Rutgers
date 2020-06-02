@@ -101,7 +101,8 @@ lstat() is identical to stat(), except that if path is a symbolic link, then the
 
 fstat() is identical to stat(), except that the file to be stat-ed is specified by the file descriptor fd.
 
-```
+https://linux.die.net/man/2/fstat
+```c
 //return struct of stat
 struct stat {
     dev_t     st_dev;     /* ID of device containing file */
@@ -118,7 +119,6 @@ struct stat {
     time_t    st_mtime;   /* time of last modification */
     time_t    st_ctime;   /* time of last status change */
 };
-https://linux.die.net/man/2/fstat
 ```
 
 relative concept:
@@ -127,20 +127,22 @@ relative concept:
 
 
 **opendir->scandir->closedir**(18.8)
-open a directory andretrieve the names of the files it contains one by one. close at last.
+open a directory and
+retrieve the names of the files it contains one by one. close at last.
 
 return value :  the pointer to struct DIR
 
-```
-           struct dirent {
-               ino_t          d_ino;       /* Inode number */
-               off_t          d_off;       /* Not an offset; see below */
-               unsigned short d_reclen;    /* Length of this record */
-               unsigned char  d_type;      /* Type of file; not supported
+```c
+// http://man7.org/linux/man-pages/man3/readdir.3.html
+struct dirent
+{
+    ino_t d_ino;             /* Inode number */
+    off_t d_off;             /* Not an offset; see below */
+    unsigned short d_reclen; /* Length of this record */
+    unsigned char d_type;    /* Type of file; not supported
                                               by all filesystem types */
-               char           d_name[256]; /* Null-terminated filename */
-           };
-//http://man7.org/linux/man-pages/man3/readdir.3.html
+    char d_name[256];        /* Null-terminated filename */
+};
 ```
 
 ### process
@@ -199,7 +201,7 @@ question:
 
 how many processes (3) are created for:
 
-```
+```c
 int main()  
 {  
         fork() || fork();  
