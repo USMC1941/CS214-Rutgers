@@ -19,7 +19,7 @@
       - [kill Example](#kill-example)
     - [| (Pipe)](#-pipe)
       - [Pipe Example](#pipe-example)
-    - [> and >>](#blockquoteand-blockquote)
+    - [Redirection: > and >>](#redirection--and-)
     - [tee](#tee)
     - [pwd](#pwd)
       - [pwd Example](#pwd-example)
@@ -338,7 +338,7 @@ bash-4.1$ cat apple.txt | wc
       3       4      21       # number of lines, number of words, number of characters
 ```
 
-### > and >>
+### Redirection: > and >>
 
 Send the output of a command to a file instead of the terminal.
 
