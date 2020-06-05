@@ -24,8 +24,8 @@ Rather then try to figure out a trick to make string literals changeable (it wil
 #include <stdio.h>
 #include <stdlib.h>
 
-
-void main(){
+int main()
+{
 
     //char stra[20] ="abcdefghvvv";
 
@@ -77,27 +77,27 @@ void main(){
     }
 
 */
-     int i;
-     char stra[20] ="abcdefghvvv";
-     char strb[15]="abcdefghijklm";
-     char strc[10]="123456789";
-     char *p4=strb;
-     printf("---------------------------\n");
-     for (i=0;i<30;i++){
-        printf("the char index (%d) value (%c)\n",i,*p4);
+    int i;
+    char stra[20] = "abcdefghvvv";
+    char strb[15] = "abcdefghijklm";
+    char strc[10] = "123456789";
+    char *p4 = strb;
+    printf("---------------------------\n");
+    for (i = 0; i < 30; i++)
+    {
+        printf("the char index (%d) value (%c)\n", i, *p4);
         p4++;
-     }
-     char *strd="abcd";
+    }
+    char *strd = "abcd";
 
-     char stre[]="Global";
-     char strf[10]="abcdef";
+    char stre[] = "Global";
+    char strf[10] = "abcdef";
 
-     printf("addr of strd %p\n",strd);
+    printf("addr of strd %p\n", strd);
 
-     printf("addr of stra %p\n", stra);
-     printf("addr of strb %p\n", strb);
-     printf("addr of strc %p\n", strc);
-     printf("addr of strf %p\n",strf);
-     printf("addr of stre %p\n",stre);
-     
+    printf("addr of stra %p\n", stra);
+    printf("addr of strb %p\n", strb);
+    printf("addr of strc %p\n", strc);
+    printf("addr of strf %p\n", strf);
+    printf("addr of stre %p\n", stre);
 }

@@ -8,7 +8,8 @@
 #include "libb.h"
 
 /* define the function */
-void func_libb() {
+void func_libb()
+{
 	/* 
 	 * We already include stdio.h in header file 
 	 * so we can use puts here directly 

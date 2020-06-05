@@ -26,8 +26,8 @@
 #include <dirent.h>
 #include <wait.h>
 
-#define ANSI_COLOR_BLUE    "\x1b[34m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
+#define ANSI_COLOR_BLUE "\x1b[34m"
+#define ANSI_COLOR_RESET "\x1b[0m"
 
 /* We need this global int array to save the pipe \
  * for talking to parent process. To see the details
@@ -52,24 +52,29 @@ int offset = 0;
  * out all the info of directories and subdirectories
  * also the file info under these directories.
  * */
-void printDirInfo(char *dir) {
+void printDirInfo(char *dir)
+{
 	DIR *dp = NULL;
 	struct dirent *curObj = NULL;
-	if ((dp = opendir(dir)) == NULL) {
+	if ((dp = opendir(dir)) == NULL)
+	{
 		fprintf(stderr, "Can't open directory: %s\n", dir);
 		return;
 	}
 
-	while (curObj = readdir(dp)) {
-		if (!strcmp(".", curObj->d_name) || 
-				!strcmp("..", curObj->d_name)) {
+	while (curObj == readdir(dp))
+	{
+		if (!strcmp(".", curObj->d_name) ||
+			 !strcmp("..", curObj->d_name))
+		{
 			continue;
 		}
 
 		/* The same as pp[] in pipe_sample.c. This is
 		 * a pipe to recieve msg from child process*/
 		int child[2];
-		if (pipe(child) == -1) {
+		if (pipe(child) == -1)
+		{
 			perror("pipe");
 			exit(2);
 		}
@@ -83,25 +88,29 @@ void printDirInfo(char *dir) {
 		 * If a dir : fork and recursively call this\
 		 *            function
 		 **/
-		if (curObj->d_type == DT_REG) {
+		if (curObj->d_type == DT_REG)
+		{
 			int pid = fork();
-			if (pid < 0) {
+			if (pid < 0)
+			{
 				perror("fork");
 				exit(1);
 			}
-			if (pid == 0) {
-				char * newPath = (char *) malloc(
-						strlen(curObj->d_name) + strlen(dir) + 2);
+			if (pid == 0)
+			{
+				char *newPath = (char *)malloc(
+					 strlen(curObj->d_name) + strlen(dir) + 2);
 
 				newPath[0] = '\0';
 				strcpy(newPath, dir);
 				strcat(newPath, "/");
 				strcat(newPath, curObj->d_name);
-				
+
 				/* replace this part with your sorter module */
 				//////////////////////////////////////
 				int fd = open(newPath, O_RDONLY);
-				if (fd < 0) {
+				if (fd < 0)
+				{
 					fprintf(stderr, "Can't open file: %s\n", newPath);
 					return;
 				}
@@ -117,7 +126,8 @@ void printDirInfo(char *dir) {
 				 * */
 				break;
 			}
-			else {
+			else
+			{
 				/* The same as pipe_sample.c, wait child
 				 * process to be done and receive pids s
 				 * ent by its child.
@@ -136,7 +146,7 @@ void printDirInfo(char *dir) {
 				 * eed to send one pid to its parent. so
 				 * only sizeof(int) is enough
 				 * */
-				int * sendbuf = (int *) malloc(sizeof(int));
+				int *sendbuf = (int *)malloc(sizeof(int));
 				memcpy(sendbuf, &pid, sizeof(int));
 
 				/* The first process don't need to send\
@@ -144,14 +154,16 @@ void printDirInfo(char *dir) {
 				 * would not modify the global int array
 				 * so the value should be -1
 				 * */
-				if (parent[1] != -1) {
+				if (parent[1] != -1)
+				{
 					write(parent[1], sendbuf, sizeof(int));
 				}
 
 				/* This line of code only to prepare for 
 				 * printing out pids.
 				 * */
-				if (parent[1] == -1) {
+				if (parent[1] == -1)
+				{
 					memcpy(buffer + offset, sendbuf, sizeof(int));
 					offset++;
 				}
@@ -159,21 +171,24 @@ void printDirInfo(char *dir) {
 				close(child[0]);
 			}
 		}
-		else if (curObj->d_type == DT_DIR) {
+		else if (curObj->d_type == DT_DIR)
+		{
 			int pid = fork();
-			if (pid < 0) {
+			if (pid < 0)
+			{
 				perror("fork");
 				exit(1);
 			}
-			if (pid == 0) {
-				char * newPath = (char *)malloc(
-						strlen(curObj->d_name) + strlen(dir) + 2);
+			if (pid == 0)
+			{
+				char *newPath = (char *)malloc(
+					 strlen(curObj->d_name) + strlen(dir) + 2);
 
 				newPath[0] = '\0';
-			
+
 				strcpy(newPath, dir);
 				strcat(newPath, "/");
-			
+
 				strcat(newPath, curObj->d_name);
 				printf(ANSI_COLOR_BLUE "%s" ANSI_COLOR_RESET "\n", newPath);
 
@@ -196,33 +211,37 @@ void printDirInfo(char *dir) {
 				free(newPath);
 				break;
 			}
-			else {
+			else
+			{
 				/* We need to stop to wait our child pro
 				 * cesses. Or we gonna lose pids.
 				 * */
 				wait(NULL);
 				close(child[1]);
 
-				int * recvbuf = (int*) malloc(255 * sizeof(int));
+				int *recvbuf = (int *)malloc(255 * sizeof(int));
 
 				/* This time we may receive a series of pids */
 				size_t len = read(child[0], recvbuf, 255 * sizeof(int));
-				if (len == -1) {
+				if (len == -1)
+				{
 					len = 0;
 				}
 
 				int send_size = (len / sizeof(int) + 1) * sizeof(int);
-				int *sendbuf = (int*) malloc(send_size);
+				int *sendbuf = (int *)malloc(send_size);
 
 				memcpy(sendbuf, recvbuf, len);
-				memcpy( ((char*)sendbuf) + len, &pid, sizeof(int));
+				memcpy(((char *)sendbuf) + len, &pid, sizeof(int));
 
-				if(parent[1] != -1) {
+				if (parent[1] != -1)
+				{
 					write(parent[1], sendbuf, send_size);
 				}
 				free(recvbuf);
 
-				if (initpid == getpid()) {
+				if (initpid == getpid())
+				{
 					memcpy(buffer + offset, sendbuf, send_size);
 					offset += (send_size / sizeof(int));
 				}
@@ -240,18 +259,22 @@ void printDirInfo(char *dir) {
 	return;
 }
 
-int main(int argc, char * argv[]) {
-	char * base = ".";
-	if (argc >= 2) {
+int main(int argc, char *argv[])
+{
+	char *base = ".";
+	if (argc >= 2)
+	{
 		base = argv[1];
 	}
 	printf("Directory index from %s\n", base);
 	initpid = getpid();
 	printDirInfo(base);
 
-	if (initpid == getpid()) {
+	if (initpid == getpid())
+	{
 		printf("------------------------\n");
-		for (int i = 0 ; i < offset; i++) {
+		for (int i = 0; i < offset; i++)
+		{
 			printf("pid: %d\n", buffer[i]);
 		}
 		printf("total process num: %d\n", offset);

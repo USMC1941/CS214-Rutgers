@@ -21,17 +21,20 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-int main() {
+int main()
+{
 	/* prepare two pipes */
 	int parent[2];
 	int child[2];
 
 	/* parent pipe: parent --write--> child */
 	/* child pipe:  parent <--write-- child */
-	if (pipe(parent) == -1) {
+	if (pipe(parent) == -1)
+	{
 		printf("parent pipe broken...\n");
 	}
-	if (pipe(child) == -1) {
+	if (pipe(child) == -1)
+	{
 		printf("child pipe broken...\n");
 	}
 	/* Once you have done this part, you will create two 
@@ -47,14 +50,16 @@ int main() {
 	 * processes.
 	 * */
 	int pid = fork();
-	if (pid < 0) {
+	if (pid < 0)
+	{
 		perror("fail: ");
 	}
 
-	if (pid == 0) {
+	if (pid == 0)
+	{
 		/* child process */
 		char buffer[20];
-		
+
 		/* parent pipe is for parent writing to child 
 		 * so we don't need the write file descriptor
 		 * in child process here. Just close it.
@@ -85,7 +90,8 @@ int main() {
 		close(child[1]);
 		exit(0);
 	}
-	else {
+	else
+	{
 		char sendbuf[] = "Hi, my baby.";
 		/* Parent process do not need to receive msg
 		 * from parent pipe, so we just close the w-

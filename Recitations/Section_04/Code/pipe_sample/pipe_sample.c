@@ -33,7 +33,8 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 
-int main() {
+int main()
+{
 	int initpid = getpid();
 	/* Each child process shoud maintain two
 	 * pipes. One is to talk to its parent,\
@@ -43,22 +44,26 @@ int main() {
 	 * we will not loose it
 	 * */
 	int parent[2] = {-1, -1};
-	for (int i = 0 ; i < 4 ; i++) {
+	for (int i = 0; i < 4; i++)
+	{
 		/* every new loop, we create a new
 		 * pipe for its child process */
 		int pp[2];
-		if (pipe(pp) == -1) {
+		if (pipe(pp) == -1)
+		{
 			perror("pipe");
 			exit(2);
 		}
 		/* Again, do pipe before fork() */
 
 		int pid = fork();
-		if (pid < 0) {
+		if (pid < 0)
+		{
 			perror("fork");
 			exit(1);
 		}
-		if (pid == 0) {
+		if (pid == 0)
+		{
 			/* Save the pipe for talking to parent */
 			memcpy(parent, pp, 2 * sizeof(int));
 			/* Since we are not doing the next for 
@@ -77,7 +82,8 @@ int main() {
 			 * */
 			continue;
 		}
-		else {
+		else
+		{
 			/* parent process just wait their chi-
 			 * ld process. Then we can read infor-
 			 * mation through the pipe
@@ -90,7 +96,7 @@ int main() {
 			 * le descriptor
 			 * */
 			close(pp[1]);
-			int * recvbuf = (int*) malloc(255 * sizeof(int));
+			int *recvbuf = (int *)malloc(255 * sizeof(int));
 
 			/* read from pp[0] to receive pids s-
 			 * ent by its child process.*/
@@ -102,7 +108,8 @@ int main() {
 			 * thing to its parent. So we need to 
 			 * handle this case by setting len to 0
 			 * */
-			if (len == -1) {
+			if (len == -1)
+			{
 				len = 0;
 			}
 
@@ -111,15 +118,16 @@ int main() {
 			 * ts child process' pid
 			 * */
 			int send_size = (len / sizeof(int) + 1) * sizeof(int);
-			int * sendbuf = (int*) malloc(send_size);
+			int *sendbuf = (int *)malloc(send_size);
 
 			memcpy(sendbuf, recvbuf, len);
-			memcpy( ((char*)sendbuf) + len, &pid, sizeof(int) );
+			memcpy(((char *)sendbuf) + len, &pid, sizeof(int));
 
 			/* send our message to our parent thr-
 			 * ough our saved parent pipe: parent[1]
 			 * */
-			if (parent[1] != -1) {
+			if (parent[1] != -1)
+			{
 				write(parent[1], sendbuf, send_size);
 			}
 			/* Don't forget to close pipe and free \
@@ -131,15 +139,17 @@ int main() {
 
 			/* If it is the first process, I will c-
 			 * all printf to printout all the pids*/
-			if (initpid == getpid()) {
+			if (initpid == getpid())
+			{
 				printf("-------------------\n");
-				for (int i = 0; i < send_size / sizeof(int); i++) {
+				for (int i = 0; i < send_size / sizeof(int); i++)
+				{
 					printf("test pid: %d\n", sendbuf[i]);
 				}
 			}
 			free(sendbuf);
 			break;
 		}
-	}	
+	}
 	return 0;
 }

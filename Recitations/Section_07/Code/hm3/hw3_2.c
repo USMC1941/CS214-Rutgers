@@ -2,10 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define max(a,b) ( ((a) > (b)) ? (a) : (b))
+#define max(a, b) (((a) > (b)) ? (a) : (b))
 
-int main() {
-  char string0[50] = {'e','n','o','u','g','h'};
+int main()
+{
+  char string0[50] = {'e', 'n', 'o', 'u', 'g', 'h'};
   char string1[35] = "receive_perceive_conceive_retrieve";
   char string2[] = "four_similar_words";
 
@@ -16,7 +17,8 @@ int main() {
   printf("strlen_string1 %lu\n", strlen(string1));
   printf("strlen_string2 %lu\n\n", strlen(string2));
 
-  if (sizeof(string0) > strlen(string0) + strlen(string1)) {
+  if (sizeof(string0) > strlen(string0) + strlen(string1))
+  {
     strcat(string0, string1);
     printf("string0: %s\n", string0);
   }
@@ -24,8 +26,9 @@ int main() {
   printf("sizeof_string0 %lu\n", sizeof(string0));
   printf("strlen_string0 %lu\n\n", strlen(string0));
 
-  if (sizeof(string1) > strlen(string1) + strlen(string2)) {
-    strcat(string1,string2);
+  if (sizeof(string1) > strlen(string1) + strlen(string2))
+  {
+    strcat(string1, string2);
     printf("string1:%s\n", string1);
   }
 
@@ -33,7 +36,7 @@ int main() {
   printf("strlen_string1 %lu\n\n", strlen(string0));
 
   int L = max(strlen(string1), strlen(string2)) * 2;
-  char *double_long_string = (char*)malloc(sizeof(char) * L);
+  char *double_long_string = (char *)malloc(sizeof(char) * L);
 
   printf("sizeof_double_long_string %lu\n", sizeof(double_long_string));
   printf("strlen_double_long_string %lu\n\n", strlen(double_long_string));

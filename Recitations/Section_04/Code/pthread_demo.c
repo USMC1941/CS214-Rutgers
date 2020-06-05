@@ -6,14 +6,15 @@
  *
  * */
 
-#include<stdio.h>
-#include<string.h>
-#include<pthread.h>
-#include<stdlib.h>
-#include<unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <pthread.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 //////  TEST 1: call pthread_cancel to cancel itself //////
-void * func(void *arg) {
+void *func(void *arg)
+{
 	printf("\n Thread one is running...\n");
 
 	// pthread_self() returns the caller's tid
@@ -22,20 +23,23 @@ void * func(void *arg) {
 	//pthread_exit(NULL);
 }
 
-int main1(void) {
+int main1(void)
+{
 	int err;
 	// These two variables stores our thread ids
 	pthread_t thread1, thread2;
-	
+
 	// Create a thread
 	err = pthread_create(&thread1, NULL, func, NULL);
 
 	// sleep(3);
 	// like malloc(), pthread_create is not always successful
-	if (err != 0) {
+	if (err != 0)
+	{
 		printf("\ncan't create thread :[%s]", strerror(err));
 	}
-	else {
+	else
+	{
 		printf("\n Thread created successfully\n");
 	}
 
@@ -48,7 +52,6 @@ int main1(void) {
 
 /////////////////// TEST 1 END ///////////////////////////
 
-
 /// TEST 2: call pthread_cancel to cancel other thread ///
 /* In this demo, you will see thread 2, which is running
  * func2 will be terminated by thread 1 by calling pthr-
@@ -56,29 +59,35 @@ int main1(void) {
  * */
 pthread_t temp_thread;
 
-void * func1(void *p) {
+void *func1(void *p)
+{
 	int counter = 0;
-	while (1) {
+	while (1)
+	{
 		printf("thread one is running...\n");
 		sleep(1);
 		counter++;
-    /* If counter == 2 cancel thread 2 and exit */
-		if (counter == 2) {
+		/* If counter == 2 cancel thread 2 and exit */
+		if (counter == 2)
+		{
 			pthread_cancel(temp_thread);
 			pthread_exit(NULL);
 		}
 	}
 }
 
-void * func2(void *p) {
+void *func2(void *p)
+{
 	temp_thread = pthread_self();
-	while (1) {
+	while (1)
+	{
 		printf("thread two is running...\n");
 		sleep(1);
 	}
 }
 
-int main() {
+int main()
+{
 	pthread_t thread1, thread2;
 
 	pthread_create(&thread1, NULL, func1, NULL);
@@ -99,12 +108,13 @@ int main() {
 pthread_t tid[2];
 int ret1, ret2;
 
-void * doSomeThing(void *arg) 
+void *doSomeThing(void *arg)
 {
 	unsigned long i = 0;
 	pthread_t id = pthread_self();
 
-	for (i = 0 ; i < (0xFFFFFFFF) ; i++);
+	for (i = 0; i < (0xFFFFFFFF); i++)
+		;
 
 	if (pthread_equal(id, tid[0]))
 	{
@@ -124,10 +134,10 @@ void * doSomeThing(void *arg)
 int main3(void)
 {
 	int i = 0;
-	int err; 
+	int err;
 	int *ptr[2];
 
-	while(i < 2)
+	while (i < 2)
 	{
 		err = pthread_create(&(tid[i]), NULL, &doSomeThing, NULL);
 		if (err != 0)
@@ -141,8 +151,8 @@ int main3(void)
 		i++;
 	}
 
-	pthread_join(tid[0], (void**) &(ptr[0]));
-	pthread_join(tid[1], (void**) &(ptr[1]));
+	pthread_join(tid[0], (void **)&(ptr[0]));
+	pthread_join(tid[1], (void **)&(ptr[1]));
 
 	printf("\n return value from first thread id [%d]\n", *ptr[0]);
 	printf("\n return value from second thread is [%d]\n", *ptr[1]);
@@ -151,5 +161,3 @@ int main3(void)
 }
 
 /////////////////// TEST 3 END ////////////////////////////////
-
-

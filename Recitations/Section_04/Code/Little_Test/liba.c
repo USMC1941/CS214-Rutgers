@@ -6,10 +6,12 @@
  */
 #include "liba.h"
 
-void func_liba() {
+void func_liba()
+{
 	puts("Greeting from liba!!\n");
 }
 
-void add_one() {
+void add_one()
+{
 	global_var++;
 }

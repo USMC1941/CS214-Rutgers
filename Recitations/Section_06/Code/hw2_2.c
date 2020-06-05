@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
 	// try to exchange the order of a and b
 	// see what happens?
 	/*
@@ -9,12 +10,13 @@ int main() {
 	*/
 	char a[10] = "abcdefzuohui";
 	char b[10] = "0123456789";
-	
+
 	char *p = b;
 	int i;
-	for (i = 0; i < 20; i++) {
-		printf("%c\n", *(p+i));
-		printf("%u\n", p+i);
+	for (i = 0; i < 20; i++)
+	{
+		printf("%c\n", *(p + i));
+		printf("%s\n", p + i);
 	}
 	return 0;
 }

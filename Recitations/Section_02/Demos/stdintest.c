@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 	char str[10];
 	char str2[20];
 	//get str from input (last character is '\n')

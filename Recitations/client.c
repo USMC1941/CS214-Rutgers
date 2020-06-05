@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
     //printf("Enter message : ");
     //scanf("%s", message);
 
-    // using http, for basic restful api: http://www.restapitutorial.com/lessons/httpmethods.html 
+    // using http, for basic restful api: http://www.restapitutorial.com/lessons/httpmethods.html
     char *buffer = "GET / HTTP/1.0\r\n\r\n";
 
     //char *buffer = "test";
@@ -86,8 +86,7 @@ int main(int argc, char *argv[])
         //}
 
         // not a good way to recieve like this, it's better to use buffered io
-        printf("%s\n",resp);
-        
+        printf("%s\n", resp);
     }
 
     close(sock);

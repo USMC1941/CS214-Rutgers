@@ -95,11 +95,11 @@ int main(int argc, char *argv[])
         //Reply to the client
 
         i++;
-        sprintf(message,"Hello Client , I have received your connection %d times\n", i);
+        sprintf(message, "Hello Client , I have received your connection %d times\n", i);
 
         printf("src (%s) \n")
 
-        printf("processing numer (%d) request\n",i);
+            printf("processing numer (%d) request\n", i);
 
         sleep(5);
 
@@ -109,10 +109,11 @@ int main(int argc, char *argv[])
         //shutdown(new_socket);
         sleep(1);
         close(new_socket);
-        if(i==5){
+        if (i == 5)
+        {
             break;
         }
-}
+    }
 
     return 0;
 }

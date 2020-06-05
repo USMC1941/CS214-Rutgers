@@ -4,12 +4,15 @@
 #include <signal.h>
 #include <sys/types.h>
 
-int main() {
+int main()
+{
 	printf("My pid is %d\n", getpid());
 	int i = 60;
-	while(--i) {
+	while (--i)
+	{
 		write(1, ".", 1);
-		if (i == 55) {
+		if (i == 55)
+		{
 			kill(getpid(), SIGINT);
 		}
 		sleep(1);

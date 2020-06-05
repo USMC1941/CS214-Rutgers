@@ -2,14 +2,16 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef struct {
+typedef struct
+{
 	char a;
 	int b;
 	float c;
 	double d;
 } Test;
 
-enum weekday {
+enum weekday
+{
 	sun,
 	mon,
 	tue,
@@ -19,7 +21,8 @@ enum weekday {
 	sat
 };
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
 	/*
 	key point behind the different type the length of byte it take in memory
 	*/
@@ -27,16 +30,16 @@ int main(int argc, char const *argv[]) {
 	printf("sizeof integer (%ld)\n", sizeof(int));
 	printf("sizeof float (%ld)\n", sizeof(float));
 	printf("sizeof double (%ld)\n", sizeof(double));
-	
+
 	enum weekday day = sun;
 	printf("sizeof enumn (%ld)\n", sizeof(day));
 	Test t;
-	
+
 	// struct alignment depends on underlying archetecture
 	printf("sizeof Test (%ld)\n", sizeof(t));
 	int a[10];
 	printf("sizeof array (%ld)\n", sizeof(a));
-	
+
 	int *p = a;
 	printf("sizeof pointer (%ld)\n", sizeof(p));
 	printf("print %p\n", p);
@@ -48,8 +51,9 @@ int main(int argc, char const *argv[]) {
 
 	int i = 0;
 	int length = strlen(str);
-	for(i = 0; i < length + 1; i++){
-		printf("%c\n",str[i]);
+	for (i = 0; i < length + 1; i++)
+	{
+		printf("%c\n", str[i]);
 	}
 	//
 	return 0;

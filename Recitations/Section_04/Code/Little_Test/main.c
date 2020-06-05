@@ -7,8 +7,8 @@
 #include "liba.h"
 #include "libb.h"
 
-
-int main(int argc, char**argv) {
+int main(int argc, char **argv)
+{
 	/* These functions are not defined in main.c but you can use them */
 	func_liba();
 	func_libb();

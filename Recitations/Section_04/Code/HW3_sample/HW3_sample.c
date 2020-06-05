@@ -7,9 +7,9 @@
 // spaces I use. For some introduction of coding style  //
 // you can check the last slide of Recitation 2.        //
 //////////////////////////////////////////////////////////
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /* Description: 
  *		find the location of target string
@@ -21,20 +21,26 @@
  *		position of the first matching place; 
  *		-1 on not found
  * */
-int findSubstr(const char *source, const char *target) {
-	if (source == NULL || target == NULL) {
+int findSubstr(const char *source, const char *target)
+{
+	if (source == NULL || target == NULL)
+	{
 		return -1;
 	}
 	int target_size = strlen(target);
 	int source_size = strlen(source);
 	int i, j;
-	for (i = 0; i < source_size - target_size + 1; i++) {
-		for (j = 0; j < target_size; j++) {
-			if (source[i + j] != target[j]) {
-				break;													
+	for (i = 0; i < source_size - target_size + 1; i++)
+	{
+		for (j = 0; j < target_size; j++)
+		{
+			if (source[i + j] != target[j])
+			{
+				break;
 			}
 		}
-		if (j == target_size) {
+		if (j == target_size)
+		{
 			return i;
 		}
 	}
@@ -52,8 +58,10 @@ int findSubstr(const char *source, const char *target) {
  * Return:		
  *		none
  * */
-void replace(char string[], char from[], char to[]) {
-	if (string == NULL || from == NULL || to == NULL) {
+void replace(char string[], char from[], char to[])
+{
+	if (string == NULL || from == NULL || to == NULL)
+	{
 		return;
 	}
 	int stringLen = strlen(string);
@@ -62,11 +70,13 @@ void replace(char string[], char from[], char to[]) {
 
 	/*step 1: search the target*/
 	int pos = findSubstr(string, from);
-	if (pos == -1) {
+	if (pos == -1)
+	{
 		return;
 	}
 	/*step2: replace the string*/
-	for (int i = 0 ; i < toLen ; i++) {
+	for (int i = 0; i < toLen; i++)
+	{
 		string[pos + i] = to[i];
 	}
 }
@@ -82,10 +92,12 @@ void replace(char string[], char from[], char to[]) {
  * Return:
  *		none
  * */
-void replace2(char *string[], char from[], char to[]) {
-	
-	if (string == NULL || *string == NULL || 
-			from == NULL || to == NULL) {
+void replace2(char *string[], char from[], char to[])
+{
+
+	if (string == NULL || *string == NULL ||
+		 from == NULL || to == NULL)
+	{
 		return;
 	}
 	int stringLen = strlen(*string);
@@ -94,25 +106,26 @@ void replace2(char *string[], char from[], char to[]) {
 
 	/* step 1: search the target */
 	int pos = findSubstr(*string, from);
-	if (pos == -1) {
+	if (pos == -1)
+	{
 		return;
 	}
 
 	/* step2: replace the string */
 	int size = stringLen - fromLen + toLen;
-	char * newString = (char *) malloc(sizeof(char) * size); 
-	
+	char *newString = (char *)malloc(sizeof(char) * size);
+
 	memcpy(newString, *string, pos - 0);
 	memcpy(newString + pos, to, toLen);
-	memcpy(newString + pos + toLen, 
-		   *string + pos + fromLen,
-		   size - pos - toLen + 1);
+	memcpy(newString + pos + toLen,
+			 *string + pos + fromLen,
+			 size - pos - toLen + 1);
 	/* ONLY FOR AN EXAMPLE */
 	*string = newString;
 }
 
-
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 	/********* EXPERIMENT 1 ***********/
 	// This is to show the question 0 in HW3
 	/*char *s = "Hello";
@@ -149,12 +162,12 @@ int main(int argc, char **argv) {
 
 	/******** EXPERIMENT 4 *********/
 	// This is to show question 2 in HW3
-	char * str1 = argv[1];
-	char * str2 = argv[2];
+	char *str1 = argv[1];
+	char *str2 = argv[2];
 	size_t str1Len = strlen(str1);
 	size_t str2Len = strlen(str2);
 
-	char * container = (char *) malloc( sizeof(char) * (str1Len + str2Len + 1) );
+	char *container = (char *)malloc(sizeof(char) * (str1Len + str2Len + 1));
 	// Why I need to copy str1Len + 1 bytes instead of str1Len bytes?
 	// Think about how does strcat function work and how does it know
 	// where to start the concatenation.
@@ -163,13 +176,13 @@ int main(int argc, char **argv) {
 	printf("string 1: %s\n", container);
 
 	// This method is a better choice
-	char * container2 = (char *) malloc( sizeof(char) * (str1Len + str2Len + 1) );
+	char *container2 = (char *)malloc(sizeof(char) * (str1Len + str2Len + 1));
 	strcpy(container2, str1);
 	strcat(container2, str2);
 	printf("string 2: %s\n", container2);
 
 	// This is to show you that how does strcat work.
-	char * container3 = (char *) malloc( sizeof(char) * (str1Len + str2Len + 1) );
+	char *container3 = (char *)malloc(sizeof(char) * (str1Len + str2Len + 1));
 	strcpy(container3, str1);
 	strcpy(container3 + str1Len, str2);
 	printf("string 3: %s\n", container3);
