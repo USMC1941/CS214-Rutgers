@@ -97,9 +97,9 @@ int main(int argc, char *argv[])
         i++;
         sprintf(message, "Hello Client , I have received your connection %d times\n", i);
 
-        printf("src (%s) \n")
+        printf("src (%s) \n");
 
-            printf("processing numer (%d) request\n", i);
+        printf("processing numer (%d) request\n", i);
 
         sleep(5);
 

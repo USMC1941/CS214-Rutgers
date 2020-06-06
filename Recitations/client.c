@@ -7,6 +7,7 @@
 #include <sys/socket.h> //socket
 #include <arpa/inet.h>  //inet_addr
 #include <sys/time.h>
+#include <unistd.h>
 
 int main(int argc, char *argv[])
 {
