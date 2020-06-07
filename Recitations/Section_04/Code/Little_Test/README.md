@@ -5,7 +5,7 @@ Here I wrote a little program to show you how to write header files and how to i
 Put all the files under the same directory and then run the script. If script is not a executable file, you can do
 
 ```sh
-chmod +x ./scrip
+chmod +x ./script
 ```
 
 and then run the script. Then you can see some outputs.
