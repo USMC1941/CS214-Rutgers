@@ -73,7 +73,7 @@ Here is a directory layout
                            ---         ---
    ```
 4. Since `p0'''` copied the stack structure of `p0''`, once the file processing is done, `p0'''` need to return to previous function call. Then `p0'''` terminate and `p0''` will send message to `p0'`.
-   
+
    Here you can see the reason why I say we cannot use `exit(0)` at the end of the child process part. We must use break to allow the `p0'''` to return to the first level and free all the allocated memories to avoid memory leak.
 
    ```

@@ -28,7 +28,7 @@
    This is to show you how to send a signal to the program itself with `kill()` system call. This program will print out five dots and then be interrupted by itself. You can try to comment the `kill()` function line to see the difference.
 
 3. To compile for example:
-   
+
    ```sh
    gcc -o hw7a ./hw7_demo_a.c
    ```
