@@ -114,7 +114,7 @@ Find a way to generalize your sorter given _any_ CSV file. Include a discussion 
 
 ## Project Part 0 FAQ
 
-#### Q: When sorting by the item which is type of string, the sort rule is A-Z or lexicographic order？
+#### Q: When sorting by the item which is type of string, the sort rule is A-Z or lexicographic order?
 
 > The default should be lexicographical order (i.e. how `strcmp` evaluates strings)
 
