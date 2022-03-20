@@ -18,7 +18,7 @@ You will use a large array to simulate main memory (`static char myblock[4096]`)
 
 You'll be implementing your `malloc()` as a macro in a user-defined library. You should write a `mymalloc.h` library file that has:
 
--   A macro that will replace all calls to 'malloc(x)' with calls to `mymalloc(x)` and `free(x)` with `myfree(x)`.
+-   A macro that will replace all calls to `malloc(x)` with calls to `mymalloc(x)` and `free(x)` with `myfree(x)`.
 -   A function signature for your `mymalloc(x)` code in `mymalloc.c`.
 -   A definition for a static array of size `4096` to allocate from.
 
