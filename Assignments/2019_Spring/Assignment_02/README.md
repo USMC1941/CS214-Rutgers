@@ -180,9 +180,9 @@ Traverse the tree, recording bit sequence to reach each token:
 | Bit Sequence |  Word  |
 | :----------: | :----: |
 |     `0`      |  and   |
-|     100      |  cat   |
+|    `100`     |  cat   |
 |    `101`     | button |
-|     1100     |   a    |
+|    `1100`    |   a    |
 |    `1101`    |  dog   |
 |    `111`     |  ball  |
 
