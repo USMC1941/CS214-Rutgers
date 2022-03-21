@@ -36,7 +36,7 @@ $ ps aux | head -n 1
 USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 ```
 
-#### USER
+#### `USER`
 
 `USER` is the username of the owner of a Process. In actuality, this is one of the more difficult data values to determine. This may seem counterintuitive, however the machine does not care about a user's name. All users are given a user number, and that number is used internally as a user's identifier in the OS. It is only converted when displaying things to the user, however you need to know how to do that conversion, since you now need to interpret OS metadata for the user. I'll give you some pointers:
 
