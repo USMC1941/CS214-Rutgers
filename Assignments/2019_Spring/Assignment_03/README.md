@@ -96,6 +96,10 @@ The `checkout` command will fail if the project name doesn't exist on the server
 
 ### WTF Update
 
+```
+./WTF update <project name>
+```
+
 The `update` command will fail if the project name doesn't exist on the server and if the client can not contact the server. The client will request the server's current `.Manifest` for a given project name. When the client receives it, the client will scan through all the local files in its project, generate a hash for every file in its own `.Manifest` and compare it with the server's, outputting all differences to `STDOUT` as follows:
 
 -   `U` (for upload) and the full path/file name
@@ -126,7 +130,7 @@ Note that the client does not generate a hash for, or record any information for
 ./WTF upgrade <project name>
 ```
 
-The `upgrade` command will fail if the project name doesn't exist on the server, if the server can not be contacted or if there is no `.Update` on the client side. The client will apply the changes listed in the `.Update` to the client's local copy of the project. It will delete the entry from the client's .Manifest for all files tagged with a `D` and fetch from the server and write or overwrite all files on the client side that are tagged with a `M` or `A`, respectively. When it is done processing all updates listed in it, the client should delete the `.Update` file. Note that the client does not make any changes to files in the project directory that are not listed in the `.Update`. If the `.Update` is empty, the client need only inform the user that the project is up-to-date and delete the empty `.Update` file. If no `.Update` file exists, the client should tell the user to first do an update.
+The `upgrade` command will fail if the project name doesn't exist on the server, if the server can not be contacted or if there is no `.Update` on the client side. The client will apply the changes listed in the `.Update` to the client's local copy of the project. It will delete the entry from the client's `.Manifest` for all files tagged with a `D` and fetch from the server and write or overwrite all files on the client side that are tagged with a `M` or `A`, respectively. When it is done processing all updates listed in it, the client should delete the `.Update` file. Note that the client does not make any changes to files in the project directory that are not listed in the `.Update`. If the `.Update` is empty, the client need only inform the user that the project is up-to-date and delete the empty `.Update` file. If no `.Update` file exists, the client should tell the user to first do an update.
 
 ### WTF Commit
 
